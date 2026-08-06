@@ -1,0 +1,123 @@
+import { Link } from 'react-router-dom'
+import {
+  FacebookIcon,
+  MailIcon,
+  MapPinIcon,
+  PhoneIcon,
+  TwitterIcon,
+  WhatsappIcon,
+} from './icons'
+
+const quickLinks = [
+  { to: '/', label: 'Home' },
+  { to: '/heroes', label: 'Heroes' },
+  { to: '/religion', label: 'Religion' },
+]
+
+const socialLinks = [
+  {
+    id: 'facebook',
+    label: 'Guzoor on Facebook',
+    href: 'https://facebook.com/guzoor',
+    Icon: FacebookIcon,
+  },
+  {
+    id: 'twitter',
+    label: 'Guzoor on Twitter / X',
+    href: 'https://twitter.com/guzoor',
+    Icon: TwitterIcon,
+  },
+  {
+    id: 'whatsapp',
+    label: 'Guzoor on WhatsApp',
+    href: 'https://whatsapp.com/channel/guzoor',
+    Icon: WhatsappIcon,
+  },
+]
+
+export function Footer() {
+  return (
+    <footer className="bg-primary-900 text-cream-100" role="contentinfo">
+      <div className="container-page py-14">
+        <div className="grid gap-10 md:grid-cols-3">
+          <div>
+            <p className="font-display text-2xl font-semibold text-white">
+              Guzoor
+            </p>
+            <p className="mt-3 max-w-xs text-sm leading-relaxed text-cream-200/70">
+              A living archive honoring the heroes of our faith and heritage —
+              their stories, their teachings, and their hope.
+            </p>
+            <ul className="mt-5 flex items-center gap-3" role="list" aria-label="Social media">
+              {socialLinks.map(({ id, label, href, Icon }) => (
+                <li key={id}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    title={label}
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-cream-100 transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent hover:text-white"
+                  >
+                    <Icon className="h-4 w-4" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="eyebrow text-cream-300">Explore</h2>
+            <ul className="mt-4 space-y-2.5" role="list">
+              {quickLinks.map((link) => (
+                <li key={link.to}>
+                  <Link
+                    to={link.to}
+                    className="text-sm text-cream-200/75 transition-colors hover:text-white"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="eyebrow text-cream-300">Contact</h2>
+            <ul className="mt-4 space-y-3 text-sm text-cream-200/75" role="list">
+              <li className="flex items-start gap-3">
+                <MailIcon className="mt-0.5 h-4 w-4 shrink-0 text-accent-300" />
+                <a href="mailto:hello@guzoor.example.com" className="transition-colors hover:text-white">
+                  hello@guzoor.example.com
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <PhoneIcon className="mt-0.5 h-4 w-4 shrink-0 text-accent-300" />
+                <a href="tel:+15550101010" className="transition-colors hover:text-white">
+                  +1 (555) 010-1010
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <MapPinIcon className="mt-0.5 h-4 w-4 shrink-0 text-accent-300" />
+                <address className="not-italic">
+                  The Guzoor Archive, House of Stories,
+                  <br />
+                  Old Town Square, 1st Gate
+                </address>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-cream-200/50 sm:flex-row">
+          <p>
+            © {new Date().getFullYear()} Guzoor. Honoring our heroes, together.
+          </p>
+          <p>
+            Built with care for accessibility & performance. · Privacy-first, no trackers.
+          </p>
+        </div>
+      </div>
+    </footer>
+  )
+}

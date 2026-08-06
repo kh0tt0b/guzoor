@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #4a301d;
+  --color-cream: #efece3;
+  --color-accent: #683a1d;
+  --color-accent-hover: #855331;
+  --color-text: #ffffff;
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-primary transition-colors duration-300 dark:bg-primary dark:text-white;
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04';
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: 'Fraunces', Georgia, ui-serif, serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  ::selection {
+    background-color: #683a1d;
+    color: #ffffff;
+  }
+
+  :focus-visible {
+    outline: 2px solid #b57e54;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-page px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-300 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent text-white shadow-glow-accent hover:-translate-y-0.5 hover:bg-accent-400 active:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply btn border-2 border-white/60 bg-white/10 text-white backdrop-blur-sm hover:border-white hover:bg-white/20;
+  }
+
+  .btn-cream {
+    @apply btn bg-cream text-primary hover:-translate-y-0.5 hover:bg-white active:translate-y-0 dark:bg-primary-50 dark:hover:bg-primary-100;
+  }
+
+  .card {
+    @apply rounded-2xl bg-cream text-primary shadow-card ring-1 ring-accent/15 transition-all duration-300 dark:bg-primary-700 dark:text-white dark:ring-primary-500;
+  }
+
+  .card-hover {
+    @apply hover:-translate-y-1.5 hover:shadow-card-hover hover:ring-accent/40 dark:hover:ring-accent-400/60;
+  }
+
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.18em];
+  }
+}
+
+input[type='range'] {
+  height: 8px;
+  border-radius: 9999px;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  background: transparent;
+}
+
+input[type='range']::-moz-range-track {
+  background: transparent;
+}
