@@ -22,8 +22,8 @@ export function NotFound() {
             <Link to="/" className="btn-primary">
               Back to home
             </Link>
-            <Link to="/heroes" className="btn-secondary">
-              Explore the heroes
+            <Link to="/martyrs" className="btn-secondary">
+              Explore the martyrs
             </Link>
           </div>
         </div>

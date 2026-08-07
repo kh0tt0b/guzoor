@@ -1,4 +1,4 @@
-export interface Hero {
+export interface Martyr {
   id: string
   name: string
   title: string
@@ -41,6 +41,16 @@ export interface Sermon {
   src: string
   poster?: string
   description: string
+}
+
+export interface Course {
+  id: string
+  title: string
+  arabicTitle: string
+  schedule: string
+  presenter?: string
+  description: string
+  icon?: string
 }
 
 export type FilterCategory = 'all' | string

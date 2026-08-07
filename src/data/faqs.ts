@@ -5,31 +5,31 @@ export const faqs: FaqItem[] = [
     id: 'faq-what-is',
     question: 'What is Guzoor?',
     answer:
-      'Guzoor is the root of knowledge for Sudan — a living archive of the religion and history of this land. It gathers the stories of Sudanese scholars and of the heroes who died defending religion and homeland, so their memory continues to guide us.',
+      'Guzoor (جذور للبناء الفكري والتأصيل) is a continuous attempt to recover the Sudanese self from beneath the rubble of distortion — an intellectual bellows that connects the Sudanese conscience with itself and with its Islamic world. It runs forums, courses, circles, and a knowledge club, and it keeps the memory of the martyrs of religion and homeland.',
   },
   {
-    id: 'faq-who',
-    question: 'Who are the heroes in the archive?',
+    id: 'faq-who-are-martyrs',
+    question: 'Who are the martyrs in the archive?',
     answer:
-      'The archive holds the defenders — religious leaders, scholars of the khalwa and the Sufi paths, sultans, generals, and the martyrs of the revolution — who gave their lives for faith and homeland. Each profile carries their story, virtues, and a guiding quote.',
+      'They are the defenders of religion and homeland — scholars, fighters, students, and parents — whose stories are published on the Guzoor channel. Each profile carries a biography, their virtues, and a ready-to-share caption drawn from the channel\u2019s own words.',
   },
   {
-    id: 'faq-search',
-    question: 'How do I find a specific hero?',
+    id: 'faq-programs',
+    question: 'What programs does the center run?',
     answer:
-      'Use the Heroes page. You can search by name, filter by region or era, and narrow by year. Each result links to a full profile with a biography and a ready-to-share caption.',
+      'The Shaykh al-Turabi Forum for Quranic Studies (the tauhidic exegesis circles), the Circles of Thought and Remembrance, the Guzoor Knowledge Club with its book discussions, and courses such as the issues of women, family, and gender — all announced on the Guzoor channel.',
   },
   {
-    id: 'faq-sermons',
+    id: 'faq-media',
     question: 'Are the sermons and media free to use?',
     answer:
       'Yes. All content on Guzoor is offered freely for reflection, teaching, and community use. If you wish to republish or broadcast material, please contact us — we are glad to help.',
   },
   {
     id: 'faq-contribute',
-    question: 'Can I contribute a hero or a story?',
+    question: 'Can I contribute a martyr\u2019s story or an article?',
     answer:
-      'Please do. Guzoor grows through its community. If you know the story of a scholar or a defender of religion and homeland, or would like to write a reflection, use the contact form in the footer and our editorial circle will be in touch.',
+      'Please do. Guzoor grows through its community. If you know the story of a defender of religion and homeland, or would like to write a reflection, use the contact form in the footer or join the channel, and the editorial circle will be in touch.',
   },
   {
     id: 'faq-privacy',

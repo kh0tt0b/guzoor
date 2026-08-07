@@ -1,37 +1,51 @@
 import { Link } from 'react-router-dom'
 import {
   FacebookIcon,
+  InstagramIcon,
+  LinkIcon,
   MailIcon,
   MapPinIcon,
   PhoneIcon,
-  TwitterIcon,
-  WhatsappIcon,
+  TelegramIcon,
+  TikTokIcon,
 } from './icons'
 
 const quickLinks = [
   { to: '/', label: 'Home' },
-  { to: '/heroes', label: 'Heroes' },
+  { to: '/martyrs', label: 'Martyrs' },
   { to: '/religion', label: 'Religion' },
 ]
 
 const socialLinks = [
   {
+    id: 'telegram',
+    label: 'Guzoor on Telegram',
+    href: 'https://t.me/rootsplatform',
+    Icon: TelegramIcon,
+  },
+  {
+    id: 'instagram',
+    label: 'Guzoor on Instagram',
+    href: 'https://www.instagram.com/guzoor.sd',
+    Icon: InstagramIcon,
+  },
+  {
+    id: 'tiktok',
+    label: 'Guzoor on TikTok',
+    href: 'https://www.tiktok.com/@guzoor.sd56',
+    Icon: TikTokIcon,
+  },
+  {
     id: 'facebook',
     label: 'Guzoor on Facebook',
-    href: 'https://facebook.com/guzoor',
+    href: 'https://www.facebook.com/rootscenter.sd',
     Icon: FacebookIcon,
   },
   {
-    id: 'twitter',
-    label: 'Guzoor on Twitter / X',
-    href: 'https://twitter.com/guzoor',
-    Icon: TwitterIcon,
-  },
-  {
-    id: 'whatsapp',
-    label: 'Guzoor on WhatsApp',
-    href: 'https://whatsapp.com/channel/guzoor',
-    Icon: WhatsappIcon,
+    id: 'links',
+    label: 'All Guzoor links',
+    href: 'https://linktr.ee/GUZOOR',
+    Icon: LinkIcon,
   },
 ]
 
@@ -102,9 +116,9 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <MapPinIcon className="mt-0.5 h-4 w-4 shrink-0 text-accent-300" />
                 <address className="not-italic">
-                  The Guzoor Archive, House of Stories,
+                  مركز جذور للبناء الفكري والتأصيل
                   <br />
-                  Old Town Square, 1st Gate
+                  Street 60, north of Talamba Bishair, Khartoum
                 </address>
               </li>
             </ul>

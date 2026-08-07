@@ -6,7 +6,7 @@ import { CloseIcon, MenuIcon, MoonIcon, SunIcon } from './icons'
 
 const NAV_LINKS = [
   { to: '/', label: 'Home', end: true },
-  { to: '/heroes', label: 'Heroes', end: false },
+  { to: '/martyrs', label: 'Martyrs', end: false },
   { to: '/religion', label: 'Religion', end: false },
 ]
 
@@ -95,8 +95,8 @@ export function Navbar() {
             )}
           </button>
 
-          <Link to="/heroes" className="btn-primary hidden md:inline-flex">
-            Explore Heroes
+          <Link to="/martyrs" className="btn-primary hidden md:inline-flex">
+            The Martyrs
           </Link>
 
           <button

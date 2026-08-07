@@ -220,7 +220,7 @@ export function Religion() {
             <SectionHeading
               eyebrow="Questions"
               title="Frequently asked questions"
-              description="Answers about the archive, its heroes, its sermons, and how you can contribute."
+              description="Answers about the archive, its martyrs, its sermons, and how you can contribute."
             />
           </Reveal>
           <Reveal className="mt-10">

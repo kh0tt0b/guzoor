@@ -2,44 +2,44 @@ import type { Sermon } from '../types'
 
 export const sermons: Sermon[] = [
   {
-    id: 'sermon-call',
-    title: 'The Call from the Riverbank',
-    speaker: 'The Guzoor Circle',
-    duration: '10:34',
+    id: 'sermon-tauhidic',
+    title: 'Surah Yasin — A Tauhidic Reading',
+    speaker: 'Sheikh Mustafa Mirghani',
+    duration: '22:40',
     type: 'video',
     src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
     description:
-      'An introduction to the Guzoor archive and the vow of remembrance — how Sudan keeps the memory of its scholars and its defenders.',
+      'From the Shaykh al-Turabi Forum for Quranic Studies: the circle on Surah Yasin within the tauhidic exegesis series, read as one united vision.',
   },
   {
-    id: 'sermon-sufi-paths',
-    title: 'The Paths of the Heart',
-    speaker: 'Mohammed Osman al-Mirghani',
-    duration: '9:47',
+    id: 'sermon-remembrance',
+    title: 'The Intellect in the Qur\u2019an',
+    speaker: 'Sheikh Issa Musa',
+    duration: '18:15',
     type: 'audio',
     src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
     description:
-      'A dhikr-guided meditation on the Sufi orders of Sudan and the discipline of remembrance that holds a nation together.',
+      'A circle of thought and remembrance — a course in understanding the religion and pondering the verses, on the place of reason in revelation.',
   },
   {
-    id: 'sermon-martyrs',
-    title: 'A Homily for the Martyrs',
-    speaker: 'Yusuf al-Hindi',
+    id: 'sermon-eulogy',
+    title: 'A Eulogy for the Martyrs',
+    speaker: 'Ridwan Yahya',
     duration: '12:02',
     type: 'audio',
     src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
     description:
-      'A reflection on those who gave their lives for religion and homeland, and on the debt that the living owe to the dead.',
+      'Poetry in the memory of the martyrs of the lines — among them the legend of the tanks, Amin Dawlab, in verses carried on the tunes of the first.',
   },
   {
-    id: 'sermon-root',
-    title: 'The Root of Knowledge',
+    id: 'sermon-patience',
+    title: 'Patience: The Seal of the Companions',
     speaker: 'The Guzoor Circle',
-    duration: '8:15',
+    duration: '9:47',
     type: 'audio',
     src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
     description:
-      'On the khalwa and the teaching tradition of the Nile — why education in Sudan has always been a quiet form of resistance.',
+      'On patience as certainty that the martyr has not departed but moved on to be alive with his Lord — the consolation that turns the grief of parting into coolness and peace.',
   },
 ]
 

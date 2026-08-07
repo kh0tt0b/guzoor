@@ -1,6 +1,10 @@
 # Guzoor
 
-**جذور للبناء الفكري والتأصيل — Guzoor: Roots for intellectual building and deep-rooting.** A responsive, production-ready web app for the Guzoor project (@guzoor.sd) — a continuous attempt to recover the Sudanese self from beneath the rubble of distortion, reconnecting the conscience with itself and its Islamic world. Built with **React + TypeScript**, **TailwindCSS**, and **React Router**.
+**مركز جذور للبناء الفكري والتأصيل — Guzoor Center for Intellectual Building & Deep-Rooting.** A responsive, production-ready web app for the Guzoor project (@rootsplatform on Telegram). It keeps the memory of the martyrs of religion and homeland, presents the center's programs (the Shaykh al-Turabi Forum for Quranic Studies, the Circles of Thought and Remembrance, the Guzoor Knowledge Club), and publishes reflections written from the channel's own analyses. Built with **React + TypeScript**, **TailwindCSS**, and **React Router**.
+
+## Content sources
+
+The martyrs' stories, programs, and article themes are drawn from the public Telegram channel `https://t.me/rootsplatform` (all 597 posts pulled via the `t.me/s/` preview). The full raw corpus is not committed to the repo.
 
 ![Palette](https://img.shields.io/badge/palette-%234A301D%20%7C%20%23EFECE3%20%7C%20%23683A1D-683A1D)
 

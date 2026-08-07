@@ -5,13 +5,12 @@ const outDir = path.join(__dirname, '..', 'public', 'heroes')
 fs.mkdirSync(outDir, { recursive: true })
 
 const profiles = [
-  { id: 'al-mahdi', skin: '#A06C45', garment: '#3B2617', scarf: '#683A1D', gender: 'm' },
-  { id: 'abd-al-rahman', skin: '#8C5A3B', garment: '#5F3F26', scarf: '#2C1C11', gender: 'm' },
-  { id: 'al-mirghani', skin: '#C68958', garment: '#26231C', scarf: '#4A301D', gender: 'm' },
-  { id: 'yusuf-al-hindi', skin: '#7A5636', garment: '#683A1D', scarf: '#3B2617', gender: 'm' },
-  { id: 'ali-dinar', skin: '#8C5A3B', garment: '#2C1C11', scarf: '#855331', gender: 'm' },
-  { id: 'uthman-digna', skin: '#A06C45', garment: '#855331', scarf: '#26231C', gender: 'm' },
-  { id: 'al-zubayr', skin: '#C68958', garment: '#4A301D', scarf: '#5F3F26', gender: 'm' },
+  { id: 'muhannad', skin: '#8C5A3B', garment: '#3B2617', scarf: '#683A1D', gender: 'm' },
+  { id: 'hammad', skin: '#A06C45', garment: '#2C1C11', scarf: '#4A301D', gender: 'm' },
+  { id: 'amin', skin: '#C68958', garment: '#5F3F26', scarf: '#26231C', gender: 'm' },
+  { id: 'abdullah', skin: '#7A5636', garment: '#683A1D', scarf: '#855331', gender: 'm' },
+  { id: 'wadalmala', skin: '#A06C45', garment: '#26231C', scarf: '#5F3F26', gender: 'm' },
+  { id: 'aref', skin: '#8C5A3B', garment: '#855331', scarf: '#3B2617', gender: 'm' },
 ]
 
 function portrait(p) {
@@ -21,22 +20,17 @@ function portrait(p) {
          <path d="M100 78c-13 0-24 11-24 24s11 24 24 24 24-11 24-24-11-24-24-24Z" fill="${p.skin}"/>`
 }
 
-function emblem() {
-  // A medallion for the collective of martyrs: the Guzoor star over the colors of the flag, held by a wreath.
+function bosnianEmblem() {
   return `<g>
-    <path d="M100 66 105 88 127 93 105 98 100 120 95 98 73 93 95 88Z" fill="#683A1D"/>
-    <circle cx="100" cy="93" r="40" fill="none" stroke="#683A1D" stroke-opacity="0.35" stroke-width="3"/>
-    <circle cx="100" cy="93" r="30" fill="none" stroke="#683A1D" stroke-opacity="0.2" stroke-width="2"/>
-    <path d="M66 122c8 6 18 8 34 8s26-2 34-8" fill="none" stroke="#683A1D" stroke-width="3" stroke-linecap="round"/>
-    <path d="M58 70c-2-6 6-12 12-10M142 70c2-6-6-12-12-10" fill="none" stroke="#683A1D" stroke-width="3" stroke-linecap="round"/>
-    <circle cx="100" cy="160" r="4" fill="#855331"/>
-    <circle cx="70" cy="150" r="3" fill="#855331"/>
-    <circle cx="130" cy="150" r="3" fill="#855331"/>
+    <path d="M100 78 121 84 127 105 121 126 100 132 79 126 73 105 79 84Z" fill="#683A1D"/>
+    <path d="M100 92 109 95 112 104 109 113 100 116 91 113 88 104 91 95Z" fill="#C68958"/>
+    <circle cx="100" cy="105" r="44" fill="none" stroke="#683A1D" stroke-opacity="0.35" stroke-width="3"/>
+    <path d="M58 92c-8-2-10-14-2-18 8 6 18 6 26 0-8 4-6 16 2 18l-26 0ZM142 92c-8-2-10-14-2-18 8 6 18 6 26 0-8 4-6 16 2 18l-26 0Z" fill="none" stroke="#683A1D" stroke-width="2.5" stroke-linecap="round"/>
   </g>`
 }
 
 function avatar(p) {
-  const body = p.portrait ? portrait(p) : emblem()
+  const body = p.portrait ? portrait(p) : bosnianEmblem()
   return `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 200 200" role="img" aria-label="${p.label}">
   <defs>
     <radialGradient id="bg" cx="50%" cy="38%" r="75%">
@@ -53,14 +47,13 @@ function avatar(p) {
 }
 
 const labels = {
-  'al-mahdi': 'Portrait of Muhammad Ahmad al-Mahdi',
-  'abd-al-rahman': 'Portrait of Abd al-Rahman al-Mahdi',
-  'al-mirghani': 'Portrait of Mohammed Osman al-Mirghani',
-  'yusuf-al-hindi': 'Portrait of Yusuf al-Hindi',
-  'ali-dinar': 'Portrait of Sultan Ali Dinar',
-  'uthman-digna': 'Portrait of Uthman Digna',
-  'al-zubayr': 'Portrait of Al-Zubayr Rahma',
-  'december-martyrs': 'Emblem of the Martyrs of the December Revolution',
+  muhannad: 'Portrait of Muhannad al-Fadl',
+  hammad: 'Portrait of Hammad al-Sayyid Othman',
+  amin: 'Portrait of Amin Dawlab',
+  abdullah: 'Portrait of Abdullah Adam',
+  wadalmala: 'Portrait of Wad al-Mala',
+  aref: 'Portrait of Aref Abdullah al-Adil',
+  bosnia: 'Emblem of the First Turkish Martyr of Bosnia',
 }
 
 for (const p of profiles) {
@@ -71,7 +64,7 @@ for (const p of profiles) {
   console.log('wrote', p.id)
 }
 fs.writeFileSync(
-  path.join(outDir, 'december-martyrs.svg'),
-  avatar({ id: 'december-martyrs', label: labels['december-martyrs'] }),
+  path.join(outDir, 'bosnia.svg'),
+  avatar({ id: 'bosnia', label: labels.bosnia }),
 )
-console.log('wrote december-martyrs')
+console.log('wrote bosnia')

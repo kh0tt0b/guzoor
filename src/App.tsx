@@ -3,11 +3,11 @@ import { Routes, Route } from 'react-router-dom'
 import { Layout } from './components/Layout'
 
 const Home = lazy(() => import('./pages/Home').then((m) => ({ default: m.Home })))
-const Heroes = lazy(() =>
-  import('./pages/Heroes').then((m) => ({ default: m.Heroes })),
+const Martyrs = lazy(() =>
+  import('./pages/Martyrs').then((m) => ({ default: m.Martyrs })),
 )
-const HeroDetail = lazy(() =>
-  import('./pages/HeroDetail').then((m) => ({ default: m.HeroDetail })),
+const MartyrDetail = lazy(() =>
+  import('./pages/MartyrDetail').then((m) => ({ default: m.MartyrDetail })),
 )
 const Religion = lazy(() =>
   import('./pages/Religion').then((m) => ({ default: m.Religion })),
@@ -21,8 +21,8 @@ export default function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="heroes" element={<Heroes />} />
-        <Route path="heroes/:heroId" element={<HeroDetail />} />
+        <Route path="martyrs" element={<Martyrs />} />
+        <Route path="martyrs/:martyrId" element={<MartyrDetail />} />
         <Route path="religion" element={<Religion />} />
         <Route path="*" element={<NotFound />} />
       </Route>

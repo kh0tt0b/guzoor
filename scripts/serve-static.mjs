@@ -25,6 +25,9 @@ createServer((req, res) => {
   if (existsSync(file) && statSync(file).isFile()) {
     res.writeHead(200, { 'Content-Type': types[extname(file)] ?? 'application/octet-stream' })
     createReadStream(file).pipe(res)
+  } else if (existsSync(join(root, 'index.html'))) {
+    res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' })
+    createReadStream(join(root, 'index.html')).pipe(res)
   } else {
     res.writeHead(404).end('not found')
   }

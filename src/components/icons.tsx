@@ -51,6 +51,41 @@ export function MoonIcon(props: IconProps) {
   )
 }
 
+export function BookOpenIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2V3Z" />
+      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7V3Z" />
+    </svg>
+  )
+}
+
+export function HeartIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+    </svg>
+  )
+}
+
+export function PenIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M17 3a2.83 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3Z" />
+    </svg>
+  )
+}
+
+export function UsersIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+      <circle cx="9" cy="7" r="4" />
+      <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+    </svg>
+  )
+}
+
 export function SearchIcon(props: IconProps) {
   return (
     <svg {...base(props)}>
@@ -164,6 +199,41 @@ export function WhatsappIcon(props: IconProps) {
   return (
     <svg {...base(props)} fill="currentColor" stroke="none">
       <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.35A10 10 0 1 0 12 2Zm0 2a8 8 0 1 1-4.06 14.9l-.3-.17-3.02.8.8-2.95-.19-.3A8 8 0 0 1 12 4Zm-3.2 3.7c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.2.09.36.14.49.18.4.13.77.11 1.06.07.32-.05.99-.4 1.13-.79.14-.39.14-.72.1-.79-.04-.07-.14-.11-.3-.19-.16-.08-.95-.47-1.1-.52-.15-.05-.25-.08-.36.08-.11.16-.42.52-.51.63-.1.11-.19.12-.35.04-.16-.08-.68-.25-1.3-.8-.48-.43-.8-.95-.9-1.11-.1-.16-.01-.25.07-.33.08-.08.18-.21.27-.32.09-.11.12-.19.18-.31.06-.13.03-.24-.01-.33-.05-.08-.36-.86-.5-1.18-.13-.31-.26-.27-.36-.27-.09-.01-.2-.01-.31-.01Z" />
+    </svg>
+  )
+}
+
+export function TelegramIcon(props: IconProps) {
+  return (
+    <svg {...base(props)} fill="currentColor" stroke="none">
+      <path d="M21.9 4.6 19 19.3c-.16.7-.55.88-1.12.55l-3.1-2.28-1.5 1.44c-.16.17-.31.31-.64.31l.22-3.2 5.85-5.29c.25-.22-.06-.35-.4-.13L7.6 14.97l-3.08-.96c-.67-.21-.68-.67.14-.99L20.9 3.62c.56-.2 1.05.13.99.97Z" />
+    </svg>
+  )
+}
+
+export function InstagramIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <rect x="2.5" y="2.5" width="19" height="19" rx="5" />
+      <circle cx="12" cy="12" r="4.2" />
+      <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none" />
+    </svg>
+  )
+}
+
+export function TikTokIcon(props: IconProps) {
+  return (
+    <svg {...base(props)} fill="currentColor" stroke="none">
+      <path d="M19.32 5.56a5.2 5.2 0 0 1-3.2-2.97c-.04-.1-.08-.2-.1-.31-.02-.1-.03-.2-.03-.3h-3.18v12.16a2.76 2.76 0 1 1-2.76-2.76c.28 0 .56.04.82.13v-3.24a6.1 6.1 0 0 0-.82-.06 6.03 6.03 0 1 0 6.03 6.03V8.98a8.2 8.2 0 0 0 4.7 1.5V7.3c-.44 0-.87-.06-1.28-.18l-.05-.02a4.5 4.5 0 0 1-1.13-.5V5.56Z" />
+    </svg>
+  )
+}
+
+export function LinkIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
     </svg>
   )
 }
