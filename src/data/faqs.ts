@@ -5,31 +5,31 @@ export const faqs: FaqItem[] = [
     id: 'faq-what-is',
     question: 'What is Guzoor?',
     answer:
-      'Guzoor is a living archive honoring the heroes of our faith and heritage. It brings together searchable profiles of historical figures, articles and reflections on their teachings, and sermons and meditations in audio and video form.',
+      'Guzoor is the root of knowledge for Sudan — a living archive of the religion and history of this land. It gathers the stories of Sudanese scholars and of the heroes who died defending religion and homeland, so their memory continues to guide us.',
   },
   {
     id: 'faq-who',
-    question: 'Who are the "heroes" in this archive?',
+    question: 'Who are the heroes in the archive?',
     answer:
-      'The heroes are figures — scholars, peacemakers, healers, teachers, judges, poets, and keepers of tradition — whose courage and care shaped their communities. They come from many regions and centuries, and each profile includes their story, virtues, and a quote.',
+      'The archive holds the defenders — religious leaders, scholars of the khalwa and the Sufi paths, sultans, generals, and the martyrs of the revolution — who gave their lives for faith and homeland. Each profile carries their story, virtues, and a guiding quote.',
   },
   {
     id: 'faq-search',
     question: 'How do I find a specific hero?',
     answer:
-      'Use the Heroes page. You can search by name, filter by region or era, and narrow by century using the year filter. Each result links to a detailed profile with a full biography.',
+      'Use the Heroes page. You can search by name, filter by region or era, and narrow by year. Each result links to a full profile with a biography and a ready-to-share caption.',
   },
   {
     id: 'faq-sermons',
     question: 'Are the sermons and media free to use?',
     answer:
-      'Yes. All content on Guzoor is offered freely for personal reflection and community study. If you wish to republish or broadcast any material, please contact us — we are glad to help.',
+      'Yes. All content on Guzoor is offered freely for reflection, teaching, and community use. If you wish to republish or broadcast material, please contact us — we are glad to help.',
   },
   {
     id: 'faq-contribute',
-    question: 'Can I contribute a hero or article?',
+    question: 'Can I contribute a hero or a story?',
     answer:
-      'Absolutely. Guzoor grows through its community. If you know a figure whose story belongs in the archive, or would like to write a reflection, use the contact form in the footer and our editorial circle will be in touch.',
+      'Please do. Guzoor grows through its community. If you know the story of a scholar or a defender of religion and homeland, or would like to write a reflection, use the contact form in the footer and our editorial circle will be in touch.',
   },
   {
     id: 'faq-privacy',

@@ -37,8 +37,8 @@ export function Heroes() {
   return (
     <>
       <Seo
-        title="Heroes of Faith & Heritage"
-        description="Search and explore the archive of heroes — filter by name, region, era, and year. Every profile holds a biography, virtues, and a guiding quote."
+        title="Heroes of Religion & Homeland"
+        description="Meet Sudan's scholars and the heroes who died defending religion and homeland. Search by name, or filter by region, era, and year."
         path="/heroes"
       />
 
@@ -46,11 +46,11 @@ export function Heroes() {
         <div className="container-page text-center">
           <p className="eyebrow mb-3 text-cream-300">The Archive</p>
           <h1 className="font-display text-3xl font-bold sm:text-4xl">
-            Meet the heroes
+            Heroes of religion &amp; homeland
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-cream-100/80">
-            Scholars, healers, peacemakers, and keepers of tradition — search by
-            name, or narrow by region, era, and year.
+            Scholars, sultans, generals, and martyrs of Sudan — search by name,
+            or narrow by region, era, and year.
           </p>
         </div>
       </section>

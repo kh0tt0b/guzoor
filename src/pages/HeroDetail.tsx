@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { Seo } from '../components/Seo'
 import { Reveal } from '../components/Reveal'
@@ -6,6 +7,8 @@ import { SocialShare } from '../components/SocialShare'
 import {
   ArrowRightIcon,
   CalendarIcon,
+  CheckIcon,
+  CopyIcon,
   MapPinIcon,
   QuoteIcon,
   StarIcon,
@@ -16,6 +19,7 @@ import { assetUrl } from '../lib/assetUrl'
 export function HeroDetail() {
   const { heroId } = useParams<{ heroId: string }>()
   const hero = heroId ? getHeroById(heroId) : undefined
+  const [copied, setCopied] = useState(false)
 
   if (!hero) {
     return (
@@ -136,6 +140,47 @@ export function HeroDetail() {
           <Reveal delay={280} className="mt-8">
             <SocialShare title={`${hero.name} — ${hero.title} | Guzoor`} />
           </Reveal>
+
+          {hero.caption && (
+            <Reveal delay={340} className="mt-8 max-w-3xl">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <p className="eyebrow text-accent-300">Ready to share</p>
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      try {
+                        await navigator.clipboard.writeText(hero.caption as string)
+                      } catch {
+                        /* clipboard unavailable */
+                      }
+                      setCopied(true)
+                      window.setTimeout(() => setCopied(false), 2000)
+                    }}
+                    className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-accent-400"
+                  >
+                    {copied ? (
+                      <>
+                        <CheckIcon className="h-3.5 w-3.5" />
+                        Copied
+                      </>
+                    ) : (
+                      <>
+                        <CopyIcon className="h-3.5 w-3.5" />
+                        Copy caption
+                      </>
+                    )}
+                  </button>
+                </div>
+                <p
+                  className="mt-4 text-sm leading-relaxed text-cream-100/90"
+                  aria-live="polite"
+                >
+                  {hero.caption}
+                </p>
+              </div>
+            </Reveal>
+          )}
         </div>
       </section>
 

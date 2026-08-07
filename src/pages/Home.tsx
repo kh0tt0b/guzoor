@@ -51,12 +51,13 @@ function HeroOrnament() {
 export function Home() {
   const featured = heroes.filter((h) => h.featured).slice(0, 3)
   const latestArticles = articles.slice(0, 3)
+  const regionCount = new Set(heroes.map((h) => h.region)).size
 
   return (
     <>
       <Seo
-        title="Honoring the Heroes of Our Faith & Heritage"
-        description="Guzoor is a living archive of courage and faith — discover heroes, history, and teachings through searchable profiles, articles, and sermons."
+        title="The Root of Knowledge for Sudan"
+        description="Guzoor keeps the memory of Sudan's scholars and its heroes — the defenders of religion and homeland. Search profiles, read articles, and listen to sermons."
         path="/"
       />
 
@@ -66,20 +67,20 @@ export function Home() {
         <div className="container-page relative flex min-h-[88svh] flex-col items-center justify-center py-24 text-center">
           <Reveal>
             <p className="eyebrow mb-6 text-cream-300">
-              A living archive of courage &amp; faith
+              جذور السودان · The root of knowledge for Sudan
             </p>
           </Reveal>
           <Reveal delay={100}>
             <h1 className="max-w-4xl font-display text-4xl font-bold leading-[1.08] sm:text-5xl lg:text-6xl">
-              Honoring the heroes of{' '}
-              <span className="text-accent-300">our faith</span> and heritage
+              The root of knowledge for{' '}
+              <span className="text-accent-300">Sudan</span>
             </h1>
           </Reveal>
           <Reveal delay={200}>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-cream-100/85 sm:text-lg">
-              Guzoor gathers the stories of scholars, healers, peacemakers, and
-              keepers of tradition — so their courage can light the way for
-              generations to come. Search, read, and listen.
+              Guzoor keeps the memory of Sudan&apos;s scholars and its heroes —
+              the defenders of religion and homeland — so their light continues
+              to guide us. Search, read, and listen.
             </p>
           </Reveal>
           <Reveal delay={300} className="mt-10 flex flex-wrap items-center justify-center gap-4">
@@ -93,7 +94,7 @@ export function Home() {
           </Reveal>
           <Reveal delay={400}>
             <SocialShare
-              title="Guzoor — Honoring the Heroes of Our Faith & Heritage"
+              title="Guzoor — The Root of Knowledge for Sudan"
               className="mt-10"
             />
           </Reveal>
@@ -104,10 +105,10 @@ export function Home() {
       <section className="border-b border-accent/10 bg-cream dark:border-primary-500/40 dark:bg-primary-800" aria-label="Archive statistics">
         <dl className="container-page grid grid-cols-2 gap-8 py-10 text-center sm:grid-cols-4">
           {[
-            { value: heroes.length, label: 'Heroes archived' },
+            { value: heroes.length, label: 'Heroes remembered' },
             { value: articles.length, label: 'Articles & teachings' },
             { value: sermons.length, label: 'Sermons & meditations' },
-            { value: '3', label: 'Continents remembered' },
+            { value: regionCount, label: 'Regions of Sudan' },
           ].map((stat) => (
             <div key={stat.label}>
               <dd className="font-display text-4xl font-bold text-accent dark:text-cream-200">
@@ -128,7 +129,7 @@ export function Home() {
             <SectionHeading
               eyebrow="Remember"
               title="Stories worth keeping"
-              description="Every profile carries a biography, a set of virtues, and a guiding quote — a life distilled into something shareable."
+              description="From the khalwa to the sit-in, Sudan's scholars and its defenders of religion and homeland — each with a biography, a set of virtues, and a guiding quote."
             />
           </Reveal>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -162,17 +163,17 @@ export function Home() {
               {
                 step: '01',
                 title: 'Remember',
-                body: 'We search out and preserve the stories of the forgotten and the honored alike — scholars, healers, and peacemakers from every region.',
+                body: 'We keep the stories of Sudan\'s scholars and its heroes — the defenders of religion and homeland — so no sacrifice is forgotten.',
               },
               {
                 step: '02',
                 title: 'Learn',
-                body: 'We study their teachings through articles and reflections, distilling ancient wisdom into practices for modern life.',
+                body: 'We study their teachings through articles and reflections, drawing from the khalwa, the Sufi paths, and the memory of the martyrs.',
               },
               {
                 step: '03',
                 title: 'Share',
-                body: 'We pass the stories on through sermons, social sharing, and community — because a memory shared becomes a heritage.',
+                body: 'We pass the stories on through captions, sermons, and social sharing — because a memory shared becomes a heritage.',
               },
             ].map((item) => (
               <Reveal
@@ -199,7 +200,7 @@ export function Home() {
             <SectionHeading
               eyebrow="Learn"
               title="From the archive"
-              description="Articles and reflections on the history, teachings, and practices preserved at Guzoor."
+              description="Articles and reflections on Sudan's religious history — the khalwas, the Mahdiyya, the Sufi paths, and the martyrs."
             />
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -231,18 +232,19 @@ export function Home() {
         <div className="container-page relative flex flex-col items-center gap-6 text-center">
           <Reveal>
             <h2 className="max-w-2xl font-display text-3xl font-bold sm:text-4xl">
-              Someone you remember may belong in this archive.
+              A name we have lost may belong in this archive.
             </h2>
           </Reveal>
           <Reveal delay={120}>
             <p className="max-w-xl text-cream-100/85">
-              Nominate a hero, contribute an article, or simply explore what
-              the archive holds. Guzoor is built by its community.
+              Share a hero, an article, or a memory from Sudan&apos;s history.
+              Guzoor is the root of knowledge for Sudan — and it is built by its
+              community.
             </p>
           </Reveal>
           <Reveal delay={220}>
             <a href="mailto:hello@guzoor.example.com" className="btn-cream">
-              Nominate a hero
+              Share a memory
               <ArrowRightIcon className="h-4 w-4" />
             </a>
           </Reveal>

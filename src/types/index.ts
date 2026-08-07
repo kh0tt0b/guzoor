@@ -10,6 +10,7 @@ export interface Hero {
   avatar: string
   virtues: string[]
   quote: string
+  caption?: string
   featured?: boolean
 }
 

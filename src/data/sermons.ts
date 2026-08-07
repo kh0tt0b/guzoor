@@ -2,44 +2,44 @@ import type { Sermon } from '../types'
 
 export const sermons: Sermon[] = [
   {
-    id: 'sermon-foundations',
-    title: 'Foundations: What We Build On',
+    id: 'sermon-call',
+    title: 'The Call from the Riverbank',
     speaker: 'The Guzoor Circle',
     duration: '10:34',
     type: 'video',
     src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
     description:
-      'An introduction to the Guzoor archive and the discipline of remembering well. A short sermon on the foundations of a shared life.',
+      'An introduction to the Guzoor archive and the vow of remembrance — how Sudan keeps the memory of its scholars and its defenders.',
   },
   {
-    id: 'sermon-garden',
-    title: 'The Garden of Justice',
-    speaker: 'Mariam of the Syriac Lands',
+    id: 'sermon-sufi-paths',
+    title: 'The Paths of the Heart',
+    speaker: 'Mohammed Osman al-Mirghani',
     duration: '9:47',
     type: 'audio',
     src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
     description:
-      'A reflection on the open court of Khalil the Just and what it means to tend justice as a garden rather than a verdict.',
+      'A dhikr-guided meditation on the Sufi orders of Sudan and the discipline of remembrance that holds a nation together.',
   },
   {
-    id: 'sermon-keep-feast',
-    title: 'Keeping the Feast',
-    speaker: 'Sarah of the Feast Days',
+    id: 'sermon-martyrs',
+    title: 'A Homily for the Martyrs',
+    speaker: 'Yusuf al-Hindi',
     duration: '12:02',
     type: 'audio',
     src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
     description:
-      'Why communal celebration is spiritual infrastructure, and how one practice can rebuild a people.',
+      'A reflection on those who gave their lives for religion and homeland, and on the debt that the living owe to the dead.',
   },
   {
-    id: 'sermon-walking',
-    title: 'The Wisdom of Walking',
+    id: 'sermon-root',
+    title: 'The Root of Knowledge',
     speaker: 'The Guzoor Circle',
     duration: '8:15',
     type: 'audio',
     src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
     description:
-      'On pilgrimage as a path of transformation, and the small daily walks that become prayer.',
+      'On the khalwa and the teaching tradition of the Nile — why education in Sudan has always been a quiet form of resistance.',
   },
 ]
 

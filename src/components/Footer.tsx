@@ -45,8 +45,8 @@ export function Footer() {
               Guzoor
             </p>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-cream-200/70">
-              A living archive honoring the heroes of our faith and heritage —
-              their stories, their teachings, and their hope.
+              Guzoor is the root of knowledge for Sudan — keeping the memory of
+              its scholars and the heroes who defended religion and homeland.
             </p>
             <ul className="mt-5 flex items-center gap-3" role="list" aria-label="Social media">
               {socialLinks.map(({ id, label, href, Icon }) => (

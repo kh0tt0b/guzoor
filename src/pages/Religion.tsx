@@ -27,8 +27,8 @@ export function Religion() {
   return (
     <>
       <Seo
-        title="Religion & Teachings"
-        description="Explore sermons, meditations, articles, and frequently asked questions about the faith, history, and practices preserved in the Guzoor archive."
+        title="Religion & Teachings of Sudan"
+        description="Sermons, meditations, and articles on Sudan's religious heritage — the khalwas, the Sufi paths, the Mahdiyya, and the memory of the martyrs."
         path="/religion"
       />
 

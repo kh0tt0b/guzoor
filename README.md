@@ -1,6 +1,6 @@
 # Guzoor
 
-A responsive, production-ready frontend web application that honors the heroes of faith and heritage. Built with **React + TypeScript**, **TailwindCSS**, and **React Router**.
+**Guzoor — the root of knowledge for Sudan.** A responsive, production-ready web app that keeps the memory of Sudan's scholars and the heroes who died defending religion and homeland. Built with **React + TypeScript**, **TailwindCSS**, and **React Router**.
 
 ![Palette](https://img.shields.io/badge/palette-%234A301D%20%7C%20%23EFECE3%20%7C%20%23683A1D-683A1D)
 
