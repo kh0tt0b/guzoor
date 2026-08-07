@@ -19,7 +19,7 @@ export const heroes: Hero[] = [
     virtues: ['Faith', 'Leadership', 'Renewal'],
     quote: 'He who dies for his faith and his homeland does not die; he lives in the memory of the free.',
     caption:
-      'The Mahdi called Sudan back to its religious roots and then to its freedom. Faith first, then homeland. جذور السودان. #Guzoor #Sudan #Mahdiyya #TheRootOfKnowledge',
+      'لما يُعاد تشويه التاريخ، يُستعاد الاسم. المهدي علّمنا أن الدين جذر الحرية، وأن من مات في سبيل دينه ووطنه لا يموت. Guzoor — roots for intellectual building. #جذور #Guzoor #السودان #المهدي',
     featured: true,
   },
   {
@@ -40,7 +40,7 @@ export const heroes: Hero[] = [
     virtues: ['Unity', 'Steadfastness', 'Service'],
     quote: 'A homeland is not a map; it is a memory shared until it becomes a promise.',
     caption:
-      'From the son of the Mahdi to the father of the nation. Roots planted in faith, branches raised in freedom. #Guzoor #Sudan #Ansar',
+      'من جذر أبيه نبتت شجرة أمة. عبد الرحمن المهدي جسر المهدية إلى الاستقلال — رجل جمع الوطن في زمن تفريقه. #جذور #Guzoor #الأنصار',
   },
   {
     id: 'mohammed-osman-al-mirghani',
@@ -60,7 +60,7 @@ export const heroes: Hero[] = [
     virtues: ['Scholarship', 'Compassion', 'Roots'],
     quote: 'Knowledge is the root; the tree is whatever the generations make of it.',
     caption:
-      'The scholar who lit the Nile with khalwas and prayer. The root of knowledge that watered all of Sudan. #Guzoor #Khatmiyya #SufiRoots',
+      'قبل أن تُكتب الأفكار في الكتب، عاشت في الخلاوي وعلى ضفاف النيل. محمد عثمان الميرغني — جذر المعرفة الذي سقى السودان كله. #جذور #Guzoor #الختمية',
     featured: true,
   },
   {
@@ -81,7 +81,7 @@ export const heroes: Hero[] = [
     virtues: ['Patience', 'Teaching', 'Hospitality'],
     quote: 'The heart is a school; teach it in silence and it will speak in deeds.',
     caption:
-      'A century of service on the river bend. The Hindiyya taught Sudan that knowledge lives in the heart before it ever reaches the page. #Guzoor #Sudan #Hindiyya',
+      'القلب هو المدرسة الأولى. الهندية علّمت السودان أن المعرفة تسكن القلب قبل أن تسكن الصفحة. قرن من الخدمة على انحناءة النيل. #جذور #Guzoor #الهندية',
   },
   {
     id: 'ali-dinar',
@@ -101,7 +101,7 @@ export const heroes: Hero[] = [
     virtues: ['Courage', 'Sovereignty', 'Dignity'],
     quote: 'A land is free only as long as someone is willing to lose everything for it.',
     caption:
-      'He ruled Darfur with justice and defended it with his life. The last Sultan who chose death before surrender. #Guzoor #Darfur #AliDinar',
+      'قالوا له: افعل وتُنفَ بعيدًا عن وطنك. فقال: لا أرضى إلا دارفور ولو مات فيها. آخر سلاطين دارفور — صورة المدافع الذي لا ينحني. #جذور #Guzoor #دارفور #علي_دينار',
     featured: true,
   },
   {
@@ -122,7 +122,7 @@ export const heroes: Hero[] = [
     virtues: ['Valor', 'Tactics', 'Fidelity'],
     quote: 'The market taught me honesty; the battlefield taught me that the homeland has no price.',
     caption:
-      'From the souq of Sawakin to the command of the eastern front. The merchant who became a lion. #Guzoor #Sudan #OsmanDigna',
+      'من سوق سواكن إلى قيادة الميدان الشرقي. التاجر الذي صار أسدًا — حين تسترد الذات نفسها لا يعرفها أحد. #جذور #Guzoor #عثمان_دقنة',
   },
   {
     id: 'al-zubayr-rahma',
@@ -142,7 +142,7 @@ export const heroes: Hero[] = [
     virtues: ['Resistance', 'Ambition', 'Independence'],
     quote: 'A homeland is not a province; it is a people who refuse to be ruled by other people\'s maps.',
     caption:
-      'He built a state where none had been and refused to bow to empire. The governor who would not be broken. #Guzoor #Sudan #AlZubayr',
+      'بني دولة حيث لم تكن دولة، وأبى أن تحكمه خرائط الآخرين. الزبير رحمة: الوطن ليس إقليمًا، بل شعب يرفض أن يُحكم بحدود غيره. #جذور #Guzoor #الزبير_رحمة',
   },
   {
     id: 'martyrs-of-the-december-revolution',
@@ -162,7 +162,7 @@ export const heroes: Hero[] = [
     virtues: ['Sacrifice', 'Courage', 'Hope'],
     quote: 'They did not raise a flag for themselves; they raised a homeland for everyone.',
     caption:
-      'For the martyrs of the December Revolution: you are the root of everything we build now. Sudan remembers you. #Guzoor #Sudan #DecemberRevolution #Martyrs',
+      'لم يرفعوا علمًا لأنفسهم، رفعوا وطنًا للجميع. شهداء ثورة ديسمبر — أنتم جذر كل ما نبني الآن، والسودان يذكركم اسمًا اسمًا. #جذور #Guzoor #ثورة_ديسمبر #الشهداء',
     featured: true,
   },
 ]

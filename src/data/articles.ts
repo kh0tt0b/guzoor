@@ -2,6 +2,23 @@ import type { Article } from '../types'
 
 export const articles: Article[] = [
   {
+    id: 'art-narratives',
+    title: 'The War of Narratives: Why Recovering Truth Is an Act of Building',
+    excerpt:
+      'In modern conflict, the power of a narrative is not measured by its nearness to the truth but by its ability to redefine it. Guzoor answers with history.',
+    content: [
+      'In the literature of political conflict, the power of a narrative is not measured by how close it comes to the truth, but by its capacity to redefine the truth itself. Modern wars are waged through the manufacture of narratives and the steering of public consciousness — long before the first shot, and long after the last one.',
+      'This is precisely why the distortion of a people begins not with the erasure of its documents but with the confusion of its memory. A nation that no longer knows its own history is a nation that can be narrated into almost anything.',
+      'Guzoor is built on the conviction that the antidote to manufactured narrative is grounded memory. The khalwa preserves the text; the Sufi path preserves the heart; the memory of the defenders preserves the honor of the homeland. Each recovered root is a small reclamation of the self from beneath the rubble.',
+      'Recovery is not nostalgia. It is the intellectual discipline of refusing to accept the story told about us, and returning to the story that we carry.',
+      'The bellows does not create the fire; it keeps it alive against the wind. The wind of our age is narrative. Guzoor is the breath that keeps the flame.',
+    ],
+    category: 'Reflections',
+    author: 'The Guzoor Editorial Circle',
+    date: '2026-07-11',
+    readTime: '6 min read',
+  },
+  {
     id: 'art-khalwas',
     title: 'The Roots of Knowledge: The Khalwas of the Nile',
     excerpt:

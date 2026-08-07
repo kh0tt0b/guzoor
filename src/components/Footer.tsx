@@ -45,8 +45,10 @@ export function Footer() {
               Guzoor
             </p>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-cream-200/70">
-              Guzoor is the root of knowledge for Sudan — keeping the memory of
-              its scholars and the heroes who defended religion and homeland.
+              جذور للبناء الفكري والتأصيل — a continuous attempt to recover the
+              Sudanese self from beneath the rubble of distortion, and an
+              intellectual bellows that reconnects the conscience with itself
+              and with its Islamic world.
             </p>
             <ul className="mt-5 flex items-center gap-3" role="list" aria-label="Social media">
               {socialLinks.map(({ id, label, href, Icon }) => (
@@ -111,10 +113,10 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-cream-200/50 sm:flex-row">
           <p>
-            © {new Date().getFullYear()} Guzoor. Honoring our heroes, together.
+            © {new Date().getFullYear()} Guzoor — جذور للبناء الفكري والتأصيل.
           </p>
           <p>
-            Built with care for accessibility & performance. · Privacy-first, no trackers.
+            Recovering the self, rooting the conscience. · Privacy-first, no trackers.
           </p>
         </div>
       </div>

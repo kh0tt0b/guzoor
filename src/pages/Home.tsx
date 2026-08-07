@@ -56,8 +56,8 @@ export function Home() {
   return (
     <>
       <Seo
-        title="The Root of Knowledge for Sudan"
-        description="Guzoor keeps the memory of Sudan's scholars and its heroes — the defenders of religion and homeland. Search profiles, read articles, and listen to sermons."
+        title="Guzoor — Roots for Intellectual Building & Deep-Rooting"
+        description="Guzoor (جذور للبناء الفكري والتأصيل) recovers the Sudanese self from beneath the rubble of distortion, reconnecting the conscience to itself and to its Islamic world. Search the roots, read the history, listen to the sermons."
         path="/"
       />
 
@@ -67,25 +67,26 @@ export function Home() {
         <div className="container-page relative flex min-h-[88svh] flex-col items-center justify-center py-24 text-center">
           <Reveal>
             <p className="eyebrow mb-6 text-cream-300">
-              جذور السودان · The root of knowledge for Sudan
+              جذور للبناء الفكري والتأصيل · Roots for intellectual building
             </p>
           </Reveal>
           <Reveal delay={100}>
             <h1 className="max-w-4xl font-display text-4xl font-bold leading-[1.08] sm:text-5xl lg:text-6xl">
-              The root of knowledge for{' '}
-              <span className="text-accent-300">Sudan</span>
+              Recovering the Sudanese self, from beneath the{' '}
+              <span className="text-accent-300">rubble of distortion</span>
             </h1>
           </Reveal>
           <Reveal delay={200}>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-cream-100/85 sm:text-lg">
-              Guzoor keeps the memory of Sudan&apos;s scholars and its heroes —
-              the defenders of religion and homeland — so their light continues
-              to guide us. Search, read, and listen.
+              Guzoor is an intellectual bellows — a نفّاج معرفي — that keeps the
+              flame of identity alive, reconnecting the Sudanese conscience to
+              itself and to its Islamic world. Search the roots, read the
+              history, listen to the sermons.
             </p>
           </Reveal>
           <Reveal delay={300} className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Link to="/heroes" className="btn-primary">
-              Explore the Heroes
+              Explore the Roots
               <ArrowRightIcon className="h-4 w-4" />
             </Link>
             <Link to="/religion" className="btn-secondary">
@@ -94,7 +95,7 @@ export function Home() {
           </Reveal>
           <Reveal delay={400}>
             <SocialShare
-              title="Guzoor — The Root of Knowledge for Sudan"
+              title="Guzoor — جذور للبناء الفكري والتأصيل: Recovering the Sudanese self"
               className="mt-10"
             />
           </Reveal>
@@ -122,14 +123,47 @@ export function Home() {
         </dl>
       </section>
 
+      {/* ============ MISSION ============ */}
+      <section className="relative overflow-hidden bg-primary-900 py-20 text-white sm:py-24">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-30"
+          aria-hidden="true"
+          style={{
+            backgroundImage:
+              'radial-gradient(circle at 85% 20%, rgba(181,126,84,0.4) 0, transparent 45%), radial-gradient(circle at 10% 85%, rgba(104,58,29,0.7) 0, transparent 50%)',
+          }}
+        />
+        <div className="container-page relative">
+          <Reveal className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow mb-6 text-accent-300">The Mission</p>
+            <blockquote>
+              <p className="font-display text-2xl font-semibold leading-snug text-cream-100 sm:text-3xl">
+                &ldquo;جذور هي محاولة مستمرة لاسترداد الذات من تحت ركام
+                التشويه، ونفّاج معرفي يصل الوجدان السوداني ببعضه وبعالمه
+                الإسلامي&rdquo;
+              </p>
+              <p className="mt-6 text-base leading-relaxed text-cream-200/80">
+                Guzoor is a continuous attempt to recover the self from beneath
+                the rubble of distortion — an intellectual bellows that
+                reconnects the Sudanese conscience with itself and with its
+                Islamic world.
+              </p>
+              <footer className="mt-4 text-sm text-cream-300/70">
+                — The Guzoor project (جذور للبناء الفكري والتأصيل)
+              </footer>
+            </blockquote>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ============ FEATURED HEROES ============ */}
       <section className="bg-cream py-20 sm:py-24 dark:bg-primary-900">
         <div className="container-page">
           <Reveal>
             <SectionHeading
               eyebrow="Remember"
-              title="Stories worth keeping"
-              description="From the khalwa to the sit-in, Sudan's scholars and its defenders of religion and homeland — each with a biography, a set of virtues, and a guiding quote."
+              title="Roots we build upon"
+              description="The scholars and the defenders of religion and homeland whose lives anchor the Sudanese self — each with a story, a set of virtues, and a guiding quote."
             />
           </Reveal>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -154,7 +188,7 @@ export function Home() {
           <Reveal>
             <SectionHeading
               eyebrow="How Guzoor works"
-              title="Three disciplines of remembrance"
+              title="Three movements of the bellows"
               tone="on-dark"
             />
           </Reveal>
@@ -162,18 +196,18 @@ export function Home() {
             {[
               {
                 step: '01',
-                title: 'Remember',
-                body: 'We keep the stories of Sudan\'s scholars and its heroes — the defenders of religion and homeland — so no sacrifice is forgotten.',
+                title: 'Recover · استرداد',
+                body: 'We recover the self from beneath the rubble of distortion — restoring what has been misnamed, misremembered, or erased from the record.',
               },
               {
                 step: '02',
-                title: 'Learn',
-                body: 'We study their teachings through articles and reflections, drawing from the khalwa, the Sufi paths, and the memory of the martyrs.',
+                title: 'Root · تأصيل',
+                body: 'We build on deep roots: the scholars of the khalwa, the Sufi paths, and the defenders of religion and homeland who shaped Sudan.',
               },
               {
                 step: '03',
-                title: 'Share',
-                body: 'We pass the stories on through captions, sermons, and social sharing — because a memory shared becomes a heritage.',
+                title: 'Connect · وصل',
+                body: 'We reconnect the Sudanese conscience with itself and with its Islamic world — through stories, sermons, and shared memory.',
               },
             ].map((item) => (
               <Reveal
@@ -200,7 +234,7 @@ export function Home() {
             <SectionHeading
               eyebrow="Learn"
               title="From the archive"
-              description="Articles and reflections on Sudan's religious history — the khalwas, the Mahdiyya, the Sufi paths, and the martyrs."
+              description="Intellectual building, deep-rooting, and the long war of narratives — articles on Sudan's religious history and the recovery of its self."
             />
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -232,19 +266,19 @@ export function Home() {
         <div className="container-page relative flex flex-col items-center gap-6 text-center">
           <Reveal>
             <h2 className="max-w-2xl font-display text-3xl font-bold sm:text-4xl">
-              A name we have lost may belong in this archive.
+              The narrative is a battle — and memory is the ground.
             </h2>
           </Reveal>
           <Reveal delay={120}>
             <p className="max-w-xl text-cream-100/85">
-              Share a hero, an article, or a memory from Sudan&apos;s history.
-              Guzoor is the root of knowledge for Sudan — and it is built by its
-              community.
+              Modern wars are waged through manufactured stories. Guzoor answers
+              with history — a root at a time. Contribute a memory from
+              Sudan&apos;s religious history.
             </p>
           </Reveal>
           <Reveal delay={220}>
             <a href="mailto:hello@guzoor.example.com" className="btn-cream">
-              Share a memory
+              Contribute a memory
               <ArrowRightIcon className="h-4 w-4" />
             </a>
           </Reveal>

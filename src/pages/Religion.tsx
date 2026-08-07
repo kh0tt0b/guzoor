@@ -27,8 +27,8 @@ export function Religion() {
   return (
     <>
       <Seo
-        title="Religion & Teachings of Sudan"
-        description="Sermons, meditations, and articles on Sudan's religious heritage — the khalwas, the Sufi paths, the Mahdiyya, and the memory of the martyrs."
+        title="The Word, Remembered Aloud — Religion & Teachings"
+        description="Sermons, meditations, and articles on Sudan's religious heritage — the khalwas, the Sufi paths, the Mahdiyya, and the recovery of the self."
         path="/religion"
       />
 
@@ -39,8 +39,9 @@ export function Religion() {
             The Word, remembered aloud
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-cream-100/80">
-            Sermons and meditations, articles and reflections — the teachings of
-            the archive, offered freely for study and devotion.
+            Sermons and meditations, articles and reflections — the intellectual
+            and spiritual building of the project, offered freely for study and
+            devotion.
           </p>
         </div>
       </section>

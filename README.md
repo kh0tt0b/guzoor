@@ -1,6 +1,6 @@
 # Guzoor
 
-**Guzoor — the root of knowledge for Sudan.** A responsive, production-ready web app that keeps the memory of Sudan's scholars and the heroes who died defending religion and homeland. Built with **React + TypeScript**, **TailwindCSS**, and **React Router**.
+**جذور للبناء الفكري والتأصيل — Guzoor: Roots for intellectual building and deep-rooting.** A responsive, production-ready web app for the Guzoor project (@guzoor.sd) — a continuous attempt to recover the Sudanese self from beneath the rubble of distortion, reconnecting the conscience with itself and its Islamic world. Built with **React + TypeScript**, **TailwindCSS**, and **React Router**.
 
 ![Palette](https://img.shields.io/badge/palette-%234A301D%20%7C%20%23EFECE3%20%7C%20%23683A1D-683A1D)
 
