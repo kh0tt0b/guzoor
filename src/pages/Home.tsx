@@ -8,6 +8,7 @@ import { SocialShare } from '../components/SocialShare'
 import { HeroSlideshow } from '../components/HeroSlideshow'
 import { assetUrl } from '../lib/assetUrl'
 import { useLanguage } from '../context/LanguageContext'
+import { pick } from '../lib/i18n'
 import {
   ArrowRightIcon,
   BookOpenIcon,
@@ -75,7 +76,7 @@ const pillarKeys = [
 ] as const
 
 export function Home() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
   const featured = martyrs.filter((m) => m.featured).slice(0, 3)
   const latestArticles = articles.slice(0, 3)
   const eraCount = new Set(martyrs.map((m) => m.era)).size
@@ -275,7 +276,7 @@ export function Home() {
                       {c.arabicTitle}
                     </p>
                     <p className="mt-3 flex-1 text-sm leading-relaxed text-primary-400 dark:text-cream-200/75">
-                      {c.description}
+                      {pick(language, c.description, c.descriptionAr)}
                     </p>
                     <p className="mt-4 border-t border-accent/10 pt-4 text-xs text-primary-400 dark:border-primary-500/40 dark:text-cream-200/60">
                       {c.schedule}
@@ -349,7 +350,7 @@ export function Home() {
                   </span>
                   <span>
                     <span className="block font-semibold leading-snug text-primary-700 dark:text-cream-100">
-                      {s.title}
+                      {pick(language, s.title, s.titleAr)}
                     </span>
                     <span className="mt-1 block text-sm text-primary-400 dark:text-cream-200/70">
                       {s.speaker} · {s.duration}

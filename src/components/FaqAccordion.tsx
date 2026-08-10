@@ -2,18 +2,23 @@ import { useState } from 'react'
 import type { FaqItem } from '../types'
 import { ChevronDownIcon } from './icons'
 import { cn } from '../lib/cn'
+import { useLanguage } from '../context/LanguageContext'
+import { pick } from '../lib/i18n'
 
 interface FaqAccordionProps {
   items: FaqItem[]
 }
 
 export function FaqAccordion({ items }: FaqAccordionProps) {
+  const { language } = useLanguage()
   const [openId, setOpenId] = useState<string | null>(items[0]?.id ?? null)
 
   return (
     <div className="mx-auto max-w-3xl space-y-3">
       {items.map((item) => {
         const isOpen = openId === item.id
+        const question = pick(language, item.question, item.questionAr)
+        const answer = pick(language, item.answer, item.answerAr)
         return (
           <div
             key={item.id}
@@ -34,7 +39,7 @@ export function FaqAccordion({ items }: FaqAccordionProps) {
                 )}
               >
                 <span className="text-sm font-semibold text-primary sm:text-base dark:text-white">
-                  {item.question}
+                  {question}
                 </span>
                 <span
                   className={cn(
@@ -55,7 +60,7 @@ export function FaqAccordion({ items }: FaqAccordionProps) {
               className="px-5 pb-5"
             >
               <p className="text-sm leading-relaxed text-primary-400 dark:text-cream-200/80">
-                {item.answer}
+                {answer}
               </p>
             </div>
           </div>

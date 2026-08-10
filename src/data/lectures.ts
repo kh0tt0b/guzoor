@@ -10,6 +10,8 @@ export const lectures: Lecture[] = [
     date: '2024-01-31',
     description:
       "A lecture joining intellectual grounding with the spiritual and unseen weight of Jerusalem's cause, and its centrality in the message of the Muslim — affirming the standing of Jerusalem in the mission of the prophets and its place in the project of the ummah's revival.",
+    descriptionAr:
+      'محاضرة تجمع بين التأصيل الفكري والوزن الروحي والغيبي لقضية فلسطين ومركزيتها في رسالة الإنسان المسلم — تأكيدًا على مكانة بيت المقدس في رسالة الأنبياء وموقعها في مشروع نهضة الأمة.',
   },
   {
     id: 'lecture-bayt-almaqdis-2',
@@ -20,6 +22,8 @@ export const lectures: Lecture[] = [
     date: '2024-01-31',
     description:
       "An intellectual approach to understanding the nature of the conflict with the Zionist entity, reading the corruption the Qur'an describes as supplanting, and the standing watch required at its frontiers today.",
+    descriptionAr:
+      'مقاربة فكرية لفهم طبيعة الصراع مع الكيان الصهيوني، بقراءة الفساد الذي وصفه القرآن بالإحلال، وضرورة المرابطة على ثغوره اليوم.',
   },
   {
     id: 'lecture-bayt-almaqdis-3',
@@ -30,6 +34,8 @@ export const lectures: Lecture[] = [
     date: '2024-01-31',
     description:
       "Grounding the project of liberation — in principle, in method, and in practice — by clearing away doubts and resting on Qur'anic certainty and prophetic glad tidings, to shape a sound intellectual approach to the future of the conflict.",
+    descriptionAr:
+      'تأصيلٌ لمشروع التحرير — مبدأً ومنهجًا وتطبيقًا — بتخلية الشبهات والاعتماد على اليقين القرآني والبشائر النبوية، لتشكيل مقاربة فكرية سليمة لمستقبل الصراع.',
   },
   {
     id: 'lecture-tazkiyah',
@@ -40,6 +46,8 @@ export const lectures: Lecture[] = [
     date: '2025-02-13',
     description:
       'A lecture on the purification of the soul (tazkiyah) — an evening meant to water the spirit and lift the heart, held within the Circles of Thought and Remembrance.',
+    descriptionAr:
+      'محاضرة في تزكية النفس — أمسيةٌ لسقي الروح ورفع القلب، ضمن مجالس الفكر والذكر.',
   },
   {
     id: 'lecture-manazil-alruh',
@@ -49,6 +57,8 @@ export const lectures: Lecture[] = [
     date: '2025-03-13',
     description:
       "A lecture preparing the heart for Ramadan — the stages a soul passes through as it turns toward the month of fasting.",
+    descriptionAr:
+      'محاضرة تُعِدّ القلب لرمضان — المراحل التي تمر بها النفس وهي تتوجه نحو شهر الصيام.',
   },
   {
     id: 'lecture-quran-manhaj',
@@ -58,6 +68,8 @@ export const lectures: Lecture[] = [
     date: '2025-03-20',
     description:
       "On the Qur'an not as a book to be recited alone, but as a method for living — how revelation shapes the pattern of a life.",
+    descriptionAr:
+      'عن القرآن لا بوصفه كتابًا يُتلى وحده، بل منهاجًا للحياة — كيف يُشكّل الوحي نمط العيش.',
   },
   {
     id: 'lecture-tawhidic-methods',
@@ -68,6 +80,8 @@ export const lectures: Lecture[] = [
     date: '2025-06-22',
     description:
       "Surveying the schools of Qur'anic exegesis before turning to Dr. Hassan al-Turabi's own method — the tauhidic reading that treats the Qur'an as one united vision rather than scattered verses.",
+    descriptionAr:
+      'استعراضٌ لمدارس التفسير القرآني قبل التوقف عند منهج الشيخ حسن الترابي نفسه — القراءة التوحيدية التي تعامل القرآن كرؤيةٍ واحدة موحدة لا آياتٍ متفرقة.',
   },
 ]
 

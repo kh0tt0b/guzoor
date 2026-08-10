@@ -158,6 +158,9 @@ export const translations = {
       ar: 'اختر خطبة من قائمة التشغيل. كل مقطوعة متاحة بحرّية للتأمل الشخصي والدرس الجماعي.',
     },
     playlist: { en: 'Playlist', ar: 'قائمة التشغيل' },
+    video: { en: 'Video', ar: 'فيديو' },
+    audio: { en: 'Audio', ar: 'صوت' },
+    loading: { en: 'Loading…', ar: 'جارٍ التحميل…' },
     lecturesEyebrow: { en: 'Learn', ar: 'تعلّم' },
     lecturesTitle: { en: 'Lectures & sessions', ar: 'محاضرات ومجالس' },
     lecturesDescription: {
@@ -202,6 +205,12 @@ export const translations = {
     'Liberation of Khartoum': { en: 'Liberation of Khartoum', ar: 'تحرير الخرطوم' },
     'Battle of Karama': { en: 'Battle of Karama', ar: 'معركة الكرامة' },
     'Srebrenica · Bosnia': { en: 'Srebrenica · Bosnia', ar: 'سربرينيتسا · البوسنة' },
+  },
+  articleCategories: {
+    'Politics & Thought': { en: 'Politics & Thought', ar: 'السياسة والفكر' },
+    Reflections: { en: 'Reflections', ar: 'تأملات' },
+    Teachings: { en: 'Teachings', ar: 'تعاليم' },
+    History: { en: 'History', ar: 'تاريخ' },
   },
 } as const
 

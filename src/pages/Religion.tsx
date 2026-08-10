@@ -7,6 +7,7 @@ import { FaqAccordion } from '../components/FaqAccordion'
 import { ChevronDownIcon, CalendarIcon, PlayIcon } from '../components/icons'
 import { cn } from '../lib/cn'
 import { useLanguage } from '../context/LanguageContext'
+import { pick } from '../lib/i18n'
 import { sermons } from '../data/sermons'
 import { articles, articleCategories } from '../data/articles'
 import { faqs } from '../data/faqs'
@@ -66,13 +67,13 @@ export function Religion() {
                 autoPlay
               />
               <h3 className="mt-5 text-xl font-semibold text-primary dark:text-white">
-                {selectedSermon.title}
+                {pick(language, selectedSermon.title, selectedSermon.titleAr)}
               </h3>
               <p className="mt-1 text-sm font-medium text-accent">
                 {selectedSermon.speaker} · {selectedSermon.duration}
               </p>
               <p className="mt-3 max-w-2xl leading-relaxed text-primary-400 dark:text-cream-200/75">
-                {selectedSermon.description}
+                {pick(language, selectedSermon.description, selectedSermon.descriptionAr)}
               </p>
             </Reveal>
 
@@ -115,7 +116,7 @@ export function Religion() {
                           </span>
                           <span className="min-w-0">
                             <span className="block text-sm font-semibold leading-snug">
-                              {sermon.title}
+                              {pick(language, sermon.title, sermon.titleAr)}
                             </span>
                             <span
                               className={cn(
@@ -124,7 +125,7 @@ export function Religion() {
                               )}
                             >
                               {sermon.speaker} · {sermon.duration} ·{' '}
-                              {sermon.type === 'video' ? 'Video' : 'Audio'}
+                              {sermon.type === 'video' ? t('religion', 'video') : t('religion', 'audio')}
                             </span>
                           </span>
                         </button>
@@ -172,7 +173,7 @@ export function Religion() {
                   </h3>
                   <p className="mt-0.5 text-sm font-medium text-accent">{lecture.arabicTitle}</p>
                   <p className="mt-3 leading-relaxed text-primary-400 dark:text-cream-200/75">
-                    {lecture.description}
+                    {pick(language, lecture.description, lecture.descriptionAr)}
                   </p>
                   <p className="mt-4 border-t border-accent/10 pt-3 text-xs font-semibold text-primary-500 dark:border-primary-500/40 dark:text-cream-200/70">
                     {lecture.speaker}
@@ -209,53 +210,60 @@ export function Religion() {
                     : 'bg-cream text-primary-400 ring-1 ring-accent/20 hover:bg-accent/10 dark:bg-primary-700 dark:text-cream-200/80 dark:ring-primary-500/50',
                 )}
               >
-                {cat === 'all' ? t('religion', 'allCategories') : cat}
+                {cat === 'all' ? t('religion', 'allCategories') : t('articleCategories', cat)}
               </button>
             ))}
           </Reveal>
 
           <div className="mx-auto mt-10 max-w-3xl space-y-4">
-            {visibleArticles.map((article, i) => (
-              <Reveal key={article.id} delay={i * 60}>
-                <details
-                  id={`article-${article.id}`}
-                  className="group overflow-hidden rounded-2xl border border-accent/20 bg-cream shadow-card transition-shadow open:shadow-card-hover dark:border-primary-500/50 dark:bg-primary-800"
-                >
-                  <summary className="flex cursor-pointer list-none flex-col gap-2 p-6 transition-colors [&::-webkit-details-marker]:hidden">
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="inline-flex w-fit rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
-                        {article.category}
-                      </span>
-                      <ChevronDownIcon className="h-5 w-5 text-accent transition-transform duration-300 group-open:rotate-180" />
-                    </div>
-                    <h3 className="font-display text-xl font-semibold text-primary transition-colors group-hover:text-accent dark:text-white">
-                      {article.title}
-                    </h3>
-                    <p className="text-sm leading-relaxed text-primary-400 dark:text-cream-200/70">
-                      {article.excerpt}
-                    </p>
-                    <p className="mt-1 text-xs text-primary-400/80 dark:text-cream-200/50">
-                      {article.author} · {article.readTime} ·{' '}
-                      {new Date(article.date).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric',
-                      })}
-                    </p>
-                  </summary>
-                  <div className="space-y-4 border-t border-accent/10 px-6 pb-7 pt-5 dark:border-primary-500/40">
-                    {article.content.map((paragraph, j) => (
-                      <p
-                        key={j}
-                        className="leading-relaxed text-primary-400 dark:text-cream-200/80"
-                      >
-                        {paragraph}
+            {visibleArticles.map((article, i) => {
+              const title = pick(language, article.title, article.titleAr)
+              const excerpt = pick(language, article.excerpt, article.excerptAr)
+              const author = pick(language, article.author, article.authorAr)
+              const readTime = pick(language, article.readTime, article.readTimeAr)
+              const content =
+                language === 'ar' && article.contentAr ? article.contentAr : article.content
+              return (
+                <Reveal key={article.id} delay={i * 60}>
+                  <details
+                    id={`article-${article.id}`}
+                    className="group overflow-hidden rounded-2xl border border-accent/20 bg-cream shadow-card transition-shadow open:shadow-card-hover dark:border-primary-500/50 dark:bg-primary-800"
+                  >
+                    <summary className="flex cursor-pointer list-none flex-col gap-2 p-6 transition-colors [&::-webkit-details-marker]:hidden">
+                      <div className="flex items-center justify-between gap-3">
+                        <span className="inline-flex w-fit rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
+                          {t('articleCategories', article.category)}
+                        </span>
+                        <ChevronDownIcon className="h-5 w-5 text-accent transition-transform duration-300 group-open:rotate-180" />
+                      </div>
+                      <h3 className="font-display text-xl font-semibold text-primary transition-colors group-hover:text-accent dark:text-white">
+                        {title}
+                      </h3>
+                      <p className="text-sm leading-relaxed text-primary-400 dark:text-cream-200/70">
+                        {excerpt}
                       </p>
-                    ))}
-                  </div>
-                </details>
-              </Reveal>
-            ))}
+                      <p className="mt-1 text-xs text-primary-400/80 dark:text-cream-200/50">
+                        {author} · {readTime} ·{' '}
+                        {new Date(article.date).toLocaleDateString(
+                          language === 'ar' ? 'ar' : 'en-US',
+                          { year: 'numeric', month: 'long', day: 'numeric' },
+                        )}
+                      </p>
+                    </summary>
+                    <div className="space-y-4 border-t border-accent/10 px-6 pb-7 pt-5 dark:border-primary-500/40">
+                      {content.map((paragraph, j) => (
+                        <p
+                          key={j}
+                          className="leading-relaxed text-primary-400 dark:text-cream-200/80"
+                        >
+                          {paragraph}
+                        </p>
+                      ))}
+                    </div>
+                  </details>
+                </Reveal>
+              )
+            })}
           </div>
         </div>
       </section>

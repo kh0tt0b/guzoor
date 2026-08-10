@@ -9,6 +9,7 @@ import {
 import type { Sermon } from '../types'
 import { PauseIcon, PlayIcon } from './icons'
 import { cn } from '../lib/cn'
+import { useLanguage } from '../context/LanguageContext'
 
 function formatTime(seconds: number): string {
   if (!Number.isFinite(seconds) || seconds < 0) return '0:00'
@@ -23,6 +24,7 @@ interface MediaPlayerProps {
 }
 
 export function MediaPlayer({ sermon, autoPlay = false }: MediaPlayerProps) {
+  const { t } = useLanguage()
   const mediaRef = useRef<HTMLMediaElement | null>(null)
   const [playing, setPlaying] = useState(false)
   const [current, setCurrent] = useState(0)
@@ -128,7 +130,7 @@ export function MediaPlayer({ sermon, autoPlay = false }: MediaPlayerProps) {
             <div className="flex items-center justify-between gap-3 text-xs text-cream-200/70">
               <span>{formatTime(current)}</span>
               <span className="truncate px-2 font-medium text-cream-100">
-                {loading ? 'Loading…' : `${sermon.duration}`}
+                {loading ? t('religion', 'loading') : `${sermon.duration}`}
               </span>
               <span>{formatTime(duration)}</span>
             </div>

@@ -24,19 +24,26 @@ export interface Martyr {
 export interface Article {
   id: string
   title: string
+  titleAr?: string
   excerpt: string
+  excerptAr?: string
   content: string[]
+  contentAr?: string[]
   category: string
   author: string
+  authorAr?: string
   date: string
   readTime: string
+  readTimeAr?: string
   image?: string
 }
 
 export interface FaqItem {
   id: string
   question: string
+  questionAr?: string
   answer: string
+  answerAr?: string
 }
 
 export interface Lecture {
@@ -47,17 +54,20 @@ export interface Lecture {
   series?: string
   date: string
   description: string
+  descriptionAr?: string
 }
 
 export interface Sermon {
   id: string
   title: string
+  titleAr?: string
   speaker: string
   duration: string
   type: 'video' | 'audio'
   src: string
   poster?: string
   description: string
+  descriptionAr?: string
 }
 
 export interface Course {
@@ -67,6 +77,7 @@ export interface Course {
   schedule: string
   presenter?: string
   description: string
+  descriptionAr?: string
   icon?: string
 }
 

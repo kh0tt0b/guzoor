@@ -8,7 +8,9 @@ export const courses: Course[] = [
     schedule: 'Sundays · 8:00pm Sudan time',
     presenter: 'Sheikh Mustafa Mirghani',
     description:
-      'Weekly circles of the tauhidic exegesis — a serial study of the Qur\u2019an as a united vision, reading Surah Yasin, as-Sajdah, and Fatir one after another, live on the Guzoor channel.',
+      "Weekly circles of the tauhidic exegesis — a serial study of the Qur'an as a united vision, reading Surah Yasin, as-Sajdah, and Fatir one after another, live on the Guzoor channel.",
+    descriptionAr:
+      'حلقاتٌ أسبوعية للتفسير التوحيدي — دراسة تسلسلية للقرآن كرؤيةٍ موحدة، تُقرأ فيها سور يس والسجدة وفاطر تباعًا، مباشرةً على قناة جذور.',
     icon: 'book',
   },
   {
@@ -18,7 +20,9 @@ export const courses: Course[] = [
     schedule: 'Periodic · announced on the channel',
     presenter: 'Sheikh Issa Musa',
     description:
-      'Gatherings that revive the heart and lighten the mind around the table of reflection — including the circle on \u201cThe Intellect in the Qur\u2019an,\u201d a course in understanding the religion and pondering its verses.',
+      "Gatherings that revive the heart and lighten the mind around the table of reflection — including the circle on \"The Intellect in the Qur'an,\" a course in understanding the religion and pondering its verses.",
+    descriptionAr:
+      'مجالس تُحيي القلب وتُخفّف العقل حول مائدة التدبر — بما فيها حلقة "العقل في القرآن"، دورة في فهم الدين وتدبر آياته.',
     icon: 'heart',
   },
   {
@@ -28,7 +32,9 @@ export const courses: Course[] = [
     schedule: 'Weekly sessions · t.me/nadiguzor',
     presenter: 'Community sessions',
     description:
-      'A living extension of the center — a space where the word is planted to become an idea, the idea watered to fruit into consciousness, and consciousness to rise into building. Book discussions include \u201cOur Philosophy\u201d by the martyr-thinker Muhammad Baqir al-Sadr.',
+      'A living extension of the center — a space where the word is planted to become an idea, the idea watered to fruit into consciousness, and consciousness to rise into building. Book discussions include "Our Philosophy" by the martyr-thinker Muhammad Baqir al-Sadr.',
+    descriptionAr:
+      'امتدادٌ حيّ للمركز — فضاءٌ تُزرع فيه الكلمة لتصير فكرة، والفكرة تُسقى لتثمر وعيًا، والوعي يرتقي بناءً. من مناقشات الكتب: "فلسفتنا" للمفكر الشهيد محمد باقر الصدر.',
     icon: 'pen',
   },
   {
@@ -36,9 +42,11 @@ export const courses: Course[] = [
     title: 'Women, Family & Gender — Rooted',
     arabicTitle: 'قضايا النساء والأسرة والجنوسة',
     schedule: 'Course · announced on the channel',
-    presenter: 'The center\u2019s scholars',
+    presenter: "The center's scholars",
     description:
       'A course that treats the question of women as the most effective component of society today — returning its origins to religion as the rising pillar of community, without the ready-made solutions forged in foreign contexts.',
+    descriptionAr:
+      'دورةٌ تعالج قضية المرأة بوصفها أفعل مكونات المجتمع اليوم — تُرجع أصولها إلى الدين بوصفه الركيزة الصاعدة للمجتمع، دون الحلول الجاهزة المصنوعة في سياقاتٍ أجنبية.',
     icon: 'users',
   },
   {
@@ -49,6 +57,8 @@ export const courses: Course[] = [
     presenter: 'Guzoor Center',
     description:
       'The center has endowed a library of some forty books to the Philosophy Association of the University of Khartoum, and holds joint activities in the service of knowledge and the spread of consciousness.',
+    descriptionAr:
+      'أوقف المركز مكتبةً من نحو أربعين كتابًا لجمعية الفلسفة بجامعة الخرطوم، ويقيم أنشطةً مشتركة في خدمة المعرفة ونشر الوعي.',
     icon: 'book',
   },
 ]
