@@ -10,9 +10,11 @@ import {
   CalendarIcon,
   CheckIcon,
   CopyIcon,
+  InstagramIcon,
   MapPinIcon,
   QuoteIcon,
   StarIcon,
+  TelegramIcon,
 } from '../components/icons'
 import { getMartyrById, martyrs } from '../data/martyrs'
 import { assetUrl } from '../lib/assetUrl'
@@ -112,26 +114,8 @@ export function MartyrDetail() {
                 </p>
               </Reveal>
 
-              <Reveal delay={280} className="mt-6">
-                <div className="flex flex-wrap justify-center gap-2 lg:justify-start">
-                  {martyr.virtues.map((v) => (
-                    <span
-                      key={v}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-accent/30 px-3 py-1 text-xs font-medium text-accent-300"
-                    >
-                      <StarIcon className="h-3 w-3" />
-                      {v}
-                    </span>
-                  ))}
-                </div>
-              </Reveal>
-
-              <Reveal delay={320} className="mt-8">
-                <SocialShare title={`${martyr.name} — ${martyr.title} | Guzoor`} />
-              </Reveal>
-
               {martyr.caption && (
-                <Reveal delay={360} className="mt-8">
+                <Reveal delay={280} className="mt-6">
                   <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 text-left">
                     <div className="flex flex-wrap items-center justify-between gap-3">
                       <p className="eyebrow text-accent-300">Ready to share</p>
@@ -169,6 +153,50 @@ export function MartyrDetail() {
                   </div>
                 </Reveal>
               )}
+
+              <Reveal delay={320} className="mt-6">
+                <div className="flex flex-wrap justify-center gap-2 lg:justify-start">
+                  {martyr.virtues.map((v) => (
+                    <span
+                      key={v}
+                      className="inline-flex items-center gap-1.5 rounded-full border border-accent/30 px-3 py-1 text-xs font-medium text-accent-300"
+                    >
+                      <StarIcon className="h-3 w-3" />
+                      {v}
+                    </span>
+                  ))}
+                </div>
+              </Reveal>
+
+              {martyr.source && (
+                <Reveal delay={340} className="mt-6">
+                  {martyr.source.includes('instagram.com') ? (
+                    <a
+                      href={martyr.source}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-xs font-semibold text-cream-100 transition-colors hover:border-accent hover:text-accent-300"
+                    >
+                      <InstagramIcon className="h-4 w-4" />
+                      View the original post on Instagram
+                    </a>
+                  ) : (
+                    <a
+                      href={martyr.source}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-xs font-semibold text-cream-100 transition-colors hover:border-accent hover:text-accent-300"
+                    >
+                      <TelegramIcon className="h-4 w-4" />
+                      View the original post on Telegram
+                    </a>
+                  )}
+                </Reveal>
+              )}
+
+              <Reveal delay={360} className="mt-8">
+                <SocialShare title={`${martyr.name} — ${martyr.title} | Guzoor`} />
+              </Reveal>
             </div>
           </div>
         </div>

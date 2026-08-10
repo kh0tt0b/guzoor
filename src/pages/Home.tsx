@@ -5,6 +5,8 @@ import { MartyrCard } from '../components/MartyrCard'
 import { ArticleCard } from '../components/ArticleCard'
 import { Reveal } from '../components/Reveal'
 import { SocialShare } from '../components/SocialShare'
+import { HeroSlideshow } from '../components/HeroSlideshow'
+import { assetUrl } from '../lib/assetUrl'
 import {
   ArrowRightIcon,
   BookOpenIcon,
@@ -87,6 +89,10 @@ export function Home() {
   const featured = martyrs.filter((m) => m.featured).slice(0, 3)
   const latestArticles = articles.slice(0, 3)
   const eraCount = new Set(martyrs.map((m) => m.era)).size
+  const heroPhotos = martyrs.map((m) => ({
+    src: assetUrl(m.avatar),
+    alt: m.name,
+  }))
 
   return (
     <>
@@ -98,6 +104,7 @@ export function Home() {
 
       {/* ============ HERO ============ */}
       <section className="relative overflow-hidden bg-primary-900 text-white">
+        <HeroSlideshow photos={heroPhotos} />
         <HeroOrnament />
         <div className="container-page relative flex min-h-[88svh] flex-col items-center justify-center py-24 text-center">
           <Reveal>
@@ -202,6 +209,59 @@ export function Home() {
         </div>
       </section>
 
+      {/* ============ FEATURED MARTYRS ============ */}
+      <section className="bg-primary-900 py-20 text-white sm:py-24">
+        <div className="container-page">
+          <Reveal>
+            <SectionHeading
+              eyebrow="The Martyrs"
+              title="The kept names"
+              description="The defenders of religion and homeland whose stories Guzoor publishes and keeps — scholars, fighters, students, and the young knights of the war."
+              tone="on-dark"
+            />
+          </Reveal>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {featured.map((m, i) => (
+              <Reveal key={m.id} delay={i * 80}>
+                <MartyrCard martyr={m} />
+              </Reveal>
+            ))}
+          </div>
+          <Reveal className="mt-10 text-center">
+            <Link to="/martyrs" className="btn-secondary">
+              All the martyrs
+              <ArrowRightIcon className="h-4 w-4" />
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ============ LATEST ARTICLES ============ */}
+      <section className="bg-cream py-20 dark:bg-primary-900">
+        <div className="container-page">
+          <Reveal>
+            <SectionHeading
+              eyebrow="From the archive"
+              title="Latest reflections"
+              description="Intellectual building, deep-rooting, and the war of narratives — articles written from the channel's own analyses and teachings."
+            />
+          </Reveal>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {latestArticles.map((a, i) => (
+              <Reveal key={a.id} delay={i * 80}>
+                <ArticleCard article={a} />
+              </Reveal>
+            ))}
+          </div>
+          <Reveal className="mt-10 text-center">
+            <Link to="/religion" className="btn-primary">
+              Read the archive
+              <ArrowRightIcon className="h-4 w-4" />
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ============ PROGRAMS ============ */}
       <section className="bg-cream pb-20 dark:bg-primary-900">
         <div className="container-page">
@@ -243,35 +303,8 @@ export function Home() {
         </div>
       </section>
 
-      {/* ============ FEATURED MARTYRS ============ */}
-      <section className="bg-primary-900 py-20 text-white sm:py-24">
-        <div className="container-page">
-          <Reveal>
-            <SectionHeading
-              eyebrow="The Martyrs"
-              title="The kept names"
-              description="The defenders of religion and homeland whose stories Guzoor publishes and keeps — scholars, fighters, students, and the young knights of the war."
-              tone="on-dark"
-            />
-          </Reveal>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {featured.map((m, i) => (
-              <Reveal key={m.id} delay={i * 80}>
-                <MartyrCard martyr={m} />
-              </Reveal>
-            ))}
-          </div>
-          <Reveal className="mt-10 text-center">
-            <Link to="/martyrs" className="btn-secondary">
-              All the martyrs
-              <ArrowRightIcon className="h-4 w-4" />
-            </Link>
-          </Reveal>
-        </div>
-      </section>
-
       {/* ============ PILLARS ============ */}
-      <section className="bg-primary-900 pb-20 text-white sm:pb-24">
+      <section className="bg-primary-900 py-20 text-white sm:py-24">
         <div className="container-page">
           <Reveal>
             <SectionHeading
@@ -308,7 +341,7 @@ export function Home() {
               <SectionHeading
                 eyebrow="Listen & Watch"
                 title="From the circles"
-                description="A selection of the center\u2019s media — the tauhidic readings, the circles of remembrance, and the poetry of the martyrs."
+                description="A selection of the center's media — the tauhidic readings, the circles of remembrance, and the poetry of the martyrs."
                 tone="on-dark"
               />
             </Reveal>
@@ -341,32 +374,6 @@ export function Home() {
               </Reveal>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ============ LATEST ARTICLES ============ */}
-      <section className="bg-cream py-20 dark:bg-primary-900">
-        <div className="container-page">
-          <Reveal>
-            <SectionHeading
-              eyebrow="From the archive"
-              title="Latest reflections"
-              description="Intellectual building, deep-rooting, and the war of narratives — articles written from the channel\u2019s own analyses and teachings."
-            />
-          </Reveal>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {latestArticles.map((a, i) => (
-              <Reveal key={a.id} delay={i * 80}>
-                <ArticleCard article={a} />
-              </Reveal>
-            ))}
-          </div>
-          <Reveal className="mt-10 text-center">
-            <Link to="/religion" className="btn-primary">
-              Read the archive
-              <ArrowRightIcon className="h-4 w-4" />
-            </Link>
-          </Reveal>
         </div>
       </section>
 

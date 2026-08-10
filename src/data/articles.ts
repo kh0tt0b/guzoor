@@ -38,7 +38,7 @@ export const articles: Article[] = [
     id: 'art-hijab',
     title: 'The Hijab: An Identity, Not a Habit',
     excerpt:
-      'A statement of the martyr-scholar Muhannad al-Fadl on the hijab as an identity mark of the believing woman — a sign by which the believer is known and not harmed.',
+      'A statement of the martyr-scholar Muhammad al-Fadl, founder of Guzoor, on the hijab as an identity mark of the believing woman — a sign by which the believer is known and not harmed.',
     content: [
       'Said the martyr Muhammad al-Fadl: \u201cSince the mission of the honored Prophet, the hijab has not been merely a covering of the head or a custom of the women of the Arabian peninsula; it has become a distinguishing identity marker of the Muslim woman, a banner expressing commitment to the creed of Islam, and a sign by which the believer is known and not harmed.\u201d',
       'In an age of modernization that seeks a single pattern of dress, the need of the Muslim woman for such distinction grows sharper. Identity is not nostalgia; it is presence. It is the refusal to be folded into a uniform that erases what makes her her.',
@@ -46,7 +46,7 @@ export const articles: Article[] = [
       'Guzoor holds that the root of identity is not a costume but a conviction; and that a conviction lived openly is the quietest and strongest form of resistance to the single pattern the age demands.',
     ],
     category: 'Teachings',
-    author: 'Muhannad al-Fadl',
+    author: 'Muhammad al-Fadl',
     date: '2026-07-17',
     readTime: '5 min read',
   },
@@ -68,13 +68,13 @@ export const articles: Article[] = [
   },
   {
     id: 'art-srebrenica',
-    title: 'Srebrenica at Thirty-One: The First Martyr',
+    title: 'Srebrenica at Thirty-One: Salami Yordan, the First Martyr',
     excerpt:
-      'A heart alive and Muslim that could not bear the dense death crossed into Bosnia through Bulgaria and Rome — and was the first Turkish martyr on that soil.',
+      'A heart alive and Muslim that could not bear the dense death crossed into Bosnia by sea via Croatia, after a first attempt through Bulgaria, Romania, and Hungary failed — and became the first Turkish martyr on that soil.',
     content: [
       'A moving heart, alive and Muslim, could not bear with a soul that Islam had raised above the narrow boundaries of earth and nationality this dense death and this burning weakness.',
-      'Despite the difficulty of receiving news and the absence of the networks that link the far edges of the earth, the little that reached him was enough to move him. He tightened the strap of his resolve and tried, with his companions, to cross to Yugoslavia through Bulgaria and Rome.',
-      'He was the first Turkish martyr to rise on the soil of Bosnia. We remember him on the thirty-first anniversary of the Srebrenica massacre — that site where seven thousand were taken and the world watched.',
+      "Despite the difficulty of receiving news and the absence of the networks that link the far edges of the earth, the little that reached him was enough to move him. He and his companions first tried to cross into Yugoslavia through Bulgaria, Romania, and Hungary — and failed. Their resolve did not break: they tried again, and by God's grace reached Bosnia by sea, along the Croatian coast, after a grueling journey of sixteen days.",
+      'He was Salami Yordan, the first Turkish martyr to rise on the soil of Bosnia. We remember him on the thirty-first anniversary of the Srebrenica massacre — that site where more than eight thousand were taken and the world watched.',
       'The martyrs of Srebrenica and the martyrs of Sudan stand on the same ground: the refusal to let the weak be erased, and the memory that must not be allowed to die. Guzoor keeps their names because a people that forgets its martyrs forgets itself.',
     ],
     category: 'History',

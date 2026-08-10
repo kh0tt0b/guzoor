@@ -5,7 +5,6 @@ import {
   LinkIcon,
   MailIcon,
   MapPinIcon,
-  PhoneIcon,
   TelegramIcon,
   TikTokIcon,
 } from './icons'
@@ -102,15 +101,31 @@ export function Footer() {
             <h2 className="eyebrow text-cream-300">Contact</h2>
             <ul className="mt-4 space-y-3 text-sm text-cream-200/75" role="list">
               <li className="flex items-start gap-3">
-                <MailIcon className="mt-0.5 h-4 w-4 shrink-0 text-accent-300" />
-                <a href="mailto:hello@guzoor.example.com" className="transition-colors hover:text-white">
-                  hello@guzoor.example.com
+                <TelegramIcon className="mt-0.5 h-4 w-4 shrink-0 text-accent-300" />
+                <a
+                  href="https://t.me/rootsplatform"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-white"
+                >
+                  t.me/rootsplatform
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <PhoneIcon className="mt-0.5 h-4 w-4 shrink-0 text-accent-300" />
-                <a href="tel:+15550101010" className="transition-colors hover:text-white">
-                  +1 (555) 010-1010
+                <LinkIcon className="mt-0.5 h-4 w-4 shrink-0 text-accent-300" />
+                <a
+                  href="https://linktr.ee/GUZOOR"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-white"
+                >
+                  linktr.ee/GUZOOR — all links
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <MailIcon className="mt-0.5 h-4 w-4 shrink-0 text-accent-300" />
+                <a href="mailto:guzoor.center@gmail.com" className="transition-colors hover:text-white">
+                  guzoor.center@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-3">

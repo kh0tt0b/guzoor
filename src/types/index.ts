@@ -11,6 +11,7 @@ export interface Martyr {
   virtues: string[]
   quote: string
   caption?: string
+  source?: string
   featured?: boolean
 }
 
