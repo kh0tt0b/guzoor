@@ -18,14 +18,14 @@ const LanguageContext = createContext<LanguageContextValue | undefined>(undefine
 const STORAGE_KEY = 'guzoor-language'
 
 function getInitialLanguage(): Language {
-  if (typeof window === 'undefined') return 'en'
+  if (typeof window === 'undefined') return 'ar'
   try {
     const stored = window.localStorage.getItem(STORAGE_KEY)
     if (stored === 'en' || stored === 'ar') return stored
   } catch {
     /* storage unavailable */
   }
-  return 'en'
+  return 'ar'
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
