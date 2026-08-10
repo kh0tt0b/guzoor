@@ -4,13 +4,16 @@ import { SectionHeading } from '../components/SectionHeading'
 import { Reveal } from '../components/Reveal'
 import { MediaPlayer } from '../components/MediaPlayer'
 import { FaqAccordion } from '../components/FaqAccordion'
-import { ChevronDownIcon, PlayIcon } from '../components/icons'
+import { ChevronDownIcon, CalendarIcon, PlayIcon } from '../components/icons'
 import { cn } from '../lib/cn'
+import { useLanguage } from '../context/LanguageContext'
 import { sermons } from '../data/sermons'
 import { articles, articleCategories } from '../data/articles'
 import { faqs } from '../data/faqs'
+import { lectures } from '../data/lectures'
 
 export function Religion() {
+  const { t, language } = useLanguage()
   const [selectedSermonId, setSelectedSermonId] = useState(sermons[0].id)
   const [category, setCategory] = useState('all')
 
@@ -34,14 +37,12 @@ export function Religion() {
 
       <section className="bg-primary-900 py-14 text-white">
         <div className="container-page text-center">
-          <p className="eyebrow mb-3 text-cream-300">Religion &amp; Teachings</p>
+          <p className="eyebrow mb-3 text-cream-300">{t('religion', 'eyebrow')}</p>
           <h1 className="font-display text-3xl font-bold sm:text-4xl">
-            The Word, remembered aloud
+            {t('religion', 'title')}
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-cream-100/80">
-            Sermons and meditations, articles and reflections — the intellectual
-            and spiritual building of the project, offered freely for study and
-            devotion.
+            {t('religion', 'description')}
           </p>
         </div>
       </section>
@@ -51,9 +52,9 @@ export function Religion() {
         <div className="container-page">
           <Reveal>
             <SectionHeading
-              eyebrow="Listen &amp; Watch"
-              title="Sermons & meditations"
-              description="Select a sermon from the playlist. Every piece is shared freely for personal reflection and community study."
+              eyebrow={t('religion', 'listenEyebrow')}
+              title={t('religion', 'sermonsTitle')}
+              description={t('religion', 'sermonsDescription')}
             />
           </Reveal>
 
@@ -82,7 +83,7 @@ export function Religion() {
                 aria-label="Sermon playlist"
                 aria-orientation="vertical"
               >
-                <h3 className="eyebrow px-2 pb-3 pt-1 text-accent">Playlist</h3>
+                <h3 className="eyebrow px-2 pb-3 pt-1 text-accent">{t('religion', 'playlist')}</h3>
                 <ul className="space-y-2" role="list">
                   {sermons.map((sermon) => {
                     const isActive = sermon.id === selectedSermon.id
@@ -137,14 +138,60 @@ export function Religion() {
         </div>
       </section>
 
-      {/* ============ ARTICLES ============ */}
+      {/* ============ LECTURES & SESSIONS ============ */}
       <section className="border-t border-accent/10 bg-cream-100 py-20 dark:border-primary-500/40 dark:bg-primary-800">
         <div className="container-page">
           <Reveal>
             <SectionHeading
-              eyebrow="Read"
-              title="Articles & reflections"
-              description="Deeper study of the history, wisdom, and practices that the archive preserves."
+              eyebrow={t('religion', 'lecturesEyebrow')}
+              title={t('religion', 'lecturesTitle')}
+              description={t('religion', 'lecturesDescription')}
+            />
+          </Reveal>
+
+          <div className="mx-auto mt-10 max-w-3xl space-y-4">
+            {lectures.map((lecture, i) => (
+              <Reveal key={lecture.id} delay={i * 60}>
+                <article className="card p-6">
+                  <div className="flex flex-wrap items-center gap-2">
+                    {lecture.series && (
+                      <span className="inline-flex w-fit rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
+                        {lecture.series}
+                      </span>
+                    )}
+                    <span className="inline-flex items-center gap-1.5 text-xs text-primary-400 dark:text-cream-200/60">
+                      <CalendarIcon className="h-3.5 w-3.5" />
+                      {new Date(lecture.date).toLocaleDateString(
+                        language === 'ar' ? 'ar' : 'en-US',
+                        { year: 'numeric', month: 'long', day: 'numeric' },
+                      )}
+                    </span>
+                  </div>
+                  <h3 className="mt-3 font-display text-lg font-semibold text-primary dark:text-white">
+                    {lecture.title}
+                  </h3>
+                  <p className="mt-0.5 text-sm font-medium text-accent">{lecture.arabicTitle}</p>
+                  <p className="mt-3 leading-relaxed text-primary-400 dark:text-cream-200/75">
+                    {lecture.description}
+                  </p>
+                  <p className="mt-4 border-t border-accent/10 pt-3 text-xs font-semibold text-primary-500 dark:border-primary-500/40 dark:text-cream-200/70">
+                    {lecture.speaker}
+                  </p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============ ARTICLES ============ */}
+      <section className="bg-cream py-20 dark:bg-primary-900">
+        <div className="container-page">
+          <Reveal>
+            <SectionHeading
+              eyebrow={t('religion', 'readEyebrow')}
+              title={t('religion', 'articlesTitle')}
+              description={t('religion', 'articlesDescription')}
             />
           </Reveal>
 
@@ -162,7 +209,7 @@ export function Religion() {
                     : 'bg-cream text-primary-400 ring-1 ring-accent/20 hover:bg-accent/10 dark:bg-primary-700 dark:text-cream-200/80 dark:ring-primary-500/50',
                 )}
               >
-                {cat === 'all' ? 'All' : cat}
+                {cat === 'all' ? t('religion', 'allCategories') : cat}
               </button>
             ))}
           </Reveal>
@@ -218,9 +265,9 @@ export function Religion() {
         <div className="container-page">
           <Reveal>
             <SectionHeading
-              eyebrow="Questions"
-              title="Frequently asked questions"
-              description="Answers about the archive, its martyrs, its sermons, and how you can contribute."
+              eyebrow={t('religion', 'questionsEyebrow')}
+              title={t('religion', 'faqTitle')}
+              description={t('religion', 'faqDescription')}
             />
           </Reveal>
           <Reveal className="mt-10">

@@ -4,8 +4,10 @@ import { Reveal } from '../components/Reveal'
 import { MartyrCard } from '../components/MartyrCard'
 import { SearchIcon } from '../components/icons'
 import { martyrs, regions, eras, years } from '../data/martyrs'
+import { useLanguage } from '../context/LanguageContext'
 
 export function Martyrs() {
+  const { t } = useLanguage()
   const [query, setQuery] = useState('')
   const [region, setRegion] = useState('all')
   const [era, setEra] = useState('all')
@@ -15,13 +17,19 @@ export function Martyrs() {
     return martyrs.filter((h) => {
       const q = query.trim().toLowerCase()
       const matchesQuery =
-        !q || h.name.toLowerCase().includes(q) || h.title.toLowerCase().includes(q)
+        !q ||
+        h.name.toLowerCase().includes(q) ||
+        h.title.toLowerCase().includes(q) ||
+        h.nameAr?.includes(q) ||
+        h.titleAr?.includes(q)
       const matchesRegion = region === 'all' || h.region === region
       const matchesEra = era === 'all' || h.era === era
       const matchesYear = year === 'all' || String(h.year) === year
       return matchesQuery && matchesRegion && matchesEra && matchesYear
     })
   }, [query, region, era, year])
+
+  const isFiltering = Boolean(query) || region !== 'all' || era !== 'all' || year !== 'all'
 
   return (
     <>
@@ -33,13 +41,12 @@ export function Martyrs() {
 
       <section className="bg-primary-900 py-14 text-white">
         <div className="container-page text-center">
-          <p className="eyebrow mb-3 text-cream-300">The Martyrs</p>
+          <p className="eyebrow mb-3 text-cream-300">{t('martyrsPage', 'eyebrow')}</p>
           <h1 className="font-display text-3xl font-bold sm:text-4xl">
-            The defenders of religion &amp; homeland
+            {t('martyrsPage', 'title')}
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-cream-100/80">
-            The martyrs whose stories Guzoor keeps — search by name, or narrow by
-            region, campaign, and year.
+            {t('martyrsPage', 'description')}
           </p>
         </div>
       </section>
@@ -54,7 +61,7 @@ export function Martyrs() {
           >
             <div className="relative md:col-span-6">
               <label htmlFor="martyr-search" className="sr-only">
-                Search martyrs by name or title
+                {t('martyrsPage', 'searchLabel')}
               </label>
               <SearchIcon className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-primary-300 dark:text-cream-200/50" />
               <input
@@ -62,14 +69,14 @@ export function Martyrs() {
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search by name or title…"
+                placeholder={t('martyrsPage', 'searchPlaceholder')}
                 className="input pl-12"
               />
             </div>
 
             <div className="md:col-span-2">
               <label htmlFor="region-filter" className="sr-only">
-                Filter by region
+                {t('martyrsPage', 'regionLabel')}
               </label>
               <select
                 id="region-filter"
@@ -77,10 +84,10 @@ export function Martyrs() {
                 onChange={(e) => setRegion(e.target.value)}
                 className="input"
               >
-                <option value="all">All regions</option>
+                <option value="all">{t('martyrsPage', 'allRegions')}</option>
                 {regions.map((r) => (
                   <option key={r} value={r}>
-                    {r}
+                    {t('regions', r)}
                   </option>
                 ))}
               </select>
@@ -88,7 +95,7 @@ export function Martyrs() {
 
             <div className="md:col-span-2">
               <label htmlFor="era-filter" className="sr-only">
-                Filter by campaign
+                {t('martyrsPage', 'eraLabel')}
               </label>
               <select
                 id="era-filter"
@@ -96,10 +103,10 @@ export function Martyrs() {
                 onChange={(e) => setEra(e.target.value)}
                 className="input"
               >
-                <option value="all">All campaigns</option>
+                <option value="all">{t('martyrsPage', 'allCampaigns')}</option>
                 {eras.map((e) => (
                   <option key={e} value={e}>
-                    {e}
+                    {t('eras', e)}
                   </option>
                 ))}
               </select>
@@ -107,7 +114,7 @@ export function Martyrs() {
 
             <div className="md:col-span-2">
               <label htmlFor="year-filter" className="sr-only">
-                Filter by year
+                {t('martyrsPage', 'yearLabel')}
               </label>
               <select
                 id="year-filter"
@@ -115,7 +122,7 @@ export function Martyrs() {
                 onChange={(e) => setYear(e.target.value)}
                 className="input"
               >
-                <option value="all">All years</option>
+                <option value="all">{t('martyrsPage', 'allYears')}</option>
                 {years.map((y) => (
                   <option key={y} value={String(y)}>
                     {y}
@@ -126,10 +133,11 @@ export function Martyrs() {
           </form>
 
           <p className="mt-4 text-sm text-primary-400 dark:text-cream-200/60">
-            {filtered.length} {filtered.length === 1 ? 'martyr' : 'martyrs'}
-            {query || region !== 'all' || era !== 'all' || year !== 'all'
-              ? ' match your search'
-              : ' remembered'}
+            {filtered.length}{' '}
+            {filtered.length === 1
+              ? t('martyrsPage', 'martyrSingular')
+              : t('martyrsPage', 'martyrPlural')}{' '}
+            {isFiltering ? t('martyrsPage', 'matchSearch') : t('martyrsPage', 'remembered')}
           </p>
         </div>
       </section>
@@ -147,10 +155,10 @@ export function Martyrs() {
           ) : (
             <div className="py-16 text-center">
               <p className="text-lg font-semibold text-primary-600 dark:text-cream-100">
-                No martyrs match your search
+                {t('martyrsPage', 'noMatch')}
               </p>
               <p className="mt-2 text-sm text-primary-400 dark:text-cream-200/60">
-                Try clearing a filter or searching by a different name.
+                {t('martyrsPage', 'noMatchHint')}
               </p>
             </div>
           )}

@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useTheme } from '../context/ThemeContext'
+import { useLanguage } from '../context/LanguageContext'
 import { cn } from '../lib/cn'
-import { CloseIcon, MenuIcon, MoonIcon, SunIcon } from './icons'
+import { CloseIcon, GlobeIcon, MenuIcon, MoonIcon, SunIcon } from './icons'
 
 const NAV_LINKS = [
-  { to: '/', label: 'Home', end: true },
-  { to: '/martyrs', label: 'Martyrs', end: false },
-  { to: '/religion', label: 'Religion', end: false },
-]
+  { to: '/', key: 'home', end: true },
+  { to: '/martyrs', key: 'martyrs', end: false },
+  { to: '/religion', key: 'religion', end: false },
+] as const
 
 function Logo() {
   return (
@@ -31,6 +32,7 @@ function Logo() {
 
 export function Navbar() {
   const { theme, toggleTheme } = useTheme()
+  const { toggleLanguage, t } = useLanguage()
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
@@ -74,7 +76,7 @@ export function Navbar() {
                 )
               }
             >
-              {link.label}
+              {t('nav', link.key)}
             </NavLink>
           ))}
         </div>
@@ -82,9 +84,18 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <button
             type="button"
+            onClick={toggleLanguage}
+            className="inline-flex h-10 items-center gap-1.5 rounded-full px-3 text-sm font-semibold text-primary-500 transition-colors hover:bg-accent/10 dark:text-cream-200 dark:hover:bg-white/10"
+          >
+            <GlobeIcon className="h-5 w-5" />
+            {t('nav', 'switchLanguage')}
+          </button>
+
+          <button
+            type="button"
             role="switch"
             aria-checked={theme === 'dark'}
-            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            aria-label={theme === 'dark' ? t('nav', 'switchToLight') : t('nav', 'switchToDark')}
             onClick={toggleTheme}
             className="inline-flex h-10 w-10 items-center justify-center rounded-full text-primary-500 transition-colors hover:bg-accent/10 dark:text-cream-200 dark:hover:bg-white/10"
           >
@@ -96,14 +107,14 @@ export function Navbar() {
           </button>
 
           <Link to="/martyrs" className="btn-primary hidden md:inline-flex">
-            The Martyrs
+            {t('nav', 'ctaMartyrs')}
           </Link>
 
           <button
             type="button"
             aria-expanded={open}
             aria-controls="mobile-menu"
-            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-label={open ? t('nav', 'closeMenu') : t('nav', 'openMenu')}
             onClick={() => setOpen((v) => !v)}
             className="inline-flex h-10 w-10 items-center justify-center rounded-full text-primary-500 transition-colors hover:bg-accent/10 md:hidden dark:text-cream-200 dark:hover:bg-white/10"
           >
@@ -134,7 +145,7 @@ export function Navbar() {
                   )
                 }
               >
-                {link.label}
+                {t('nav', link.key)}
               </NavLink>
             </li>
           ))}

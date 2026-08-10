@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useLanguage } from '../context/LanguageContext'
 import {
   FacebookIcon,
   InstagramIcon,
@@ -10,10 +11,10 @@ import {
 } from './icons'
 
 const quickLinks = [
-  { to: '/', label: 'Home' },
-  { to: '/martyrs', label: 'Martyrs' },
-  { to: '/religion', label: 'Religion' },
-]
+  { to: '/', key: 'home' },
+  { to: '/martyrs', key: 'martyrs' },
+  { to: '/religion', key: 'religion' },
+] as const
 
 const socialLinks = [
   {
@@ -49,6 +50,7 @@ const socialLinks = [
 ]
 
 export function Footer() {
+  const { t } = useLanguage()
   return (
     <footer className="bg-primary-900 text-cream-100" role="contentinfo">
       <div className="container-page py-14">
@@ -58,10 +60,7 @@ export function Footer() {
               Guzoor
             </p>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-cream-200/70">
-              جذور للبناء الفكري والتأصيل — a continuous attempt to recover the
-              Sudanese self from beneath the rubble of distortion, and an
-              intellectual bellows that reconnects the conscience with itself
-              and with its Islamic world.
+              {t('footer', 'tagline')}
             </p>
             <ul className="mt-5 flex items-center gap-3" role="list" aria-label="Social media">
               {socialLinks.map(({ id, label, href, Icon }) => (
@@ -82,7 +81,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h2 className="eyebrow text-cream-300">Explore</h2>
+            <h2 className="eyebrow text-cream-300">{t('footer', 'explore')}</h2>
             <ul className="mt-4 space-y-2.5" role="list">
               {quickLinks.map((link) => (
                 <li key={link.to}>
@@ -90,7 +89,7 @@ export function Footer() {
                     to={link.to}
                     className="text-sm text-cream-200/75 transition-colors hover:text-white"
                   >
-                    {link.label}
+                    {t('nav', link.key)}
                   </Link>
                 </li>
               ))}
@@ -98,7 +97,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h2 className="eyebrow text-cream-300">Contact</h2>
+            <h2 className="eyebrow text-cream-300">{t('footer', 'contact')}</h2>
             <ul className="mt-4 space-y-3 text-sm text-cream-200/75" role="list">
               <li className="flex items-start gap-3">
                 <TelegramIcon className="mt-0.5 h-4 w-4 shrink-0 text-accent-300" />
@@ -119,7 +118,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="transition-colors hover:text-white"
                 >
-                  linktr.ee/GUZOOR — all links
+                  {t('footer', 'allLinks')}
                 </a>
               </li>
               <li className="flex items-start gap-3">
@@ -133,7 +132,7 @@ export function Footer() {
                 <address className="not-italic">
                   مركز جذور للبناء الفكري والتأصيل
                   <br />
-                  Street 60, north of Talamba Bishair, Khartoum
+                  {t('footer', 'address')}
                 </address>
               </li>
             </ul>
@@ -144,9 +143,7 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} Guzoor — جذور للبناء الفكري والتأصيل.
           </p>
-          <p>
-            Recovering the self, rooting the conscience. · Privacy-first, no trackers.
-          </p>
+          <p>{t('footer', 'copyrightTagline')}</p>
         </div>
       </div>
     </footer>

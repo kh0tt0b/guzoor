@@ -5,6 +5,7 @@ import {
   WhatsappIcon,
 } from './icons'
 import { cn } from '../lib/cn'
+import { useLanguage } from '../context/LanguageContext'
 
 interface SocialShareProps {
   title: string
@@ -26,6 +27,7 @@ export function SocialShare({
   tone = 'on-dark',
   className,
 }: SocialShareProps) {
+  const { t } = useLanguage()
   const [currentUrl, setCurrentUrl] = useState(url ?? '')
 
   useEffect(() => {
@@ -64,7 +66,7 @@ export function SocialShare({
           tone === 'on-dark' ? 'text-cream-200/80' : 'text-primary-400',
         )}
       >
-        Share
+        {t('socialShare', 'label')}
       </span>
       <ul className="flex items-center gap-2" role="list" aria-label="Share this page">
         {targets.map(({ id, label, href, Icon }) => (

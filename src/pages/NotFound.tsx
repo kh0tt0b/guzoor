@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
 import { Seo } from '../components/Seo'
+import { useLanguage } from '../context/LanguageContext'
 
 export function NotFound() {
+  const { t } = useLanguage()
   return (
     <>
       <Seo
@@ -12,18 +14,17 @@ export function NotFound() {
         <div className="container-page">
           <p className="font-display text-7xl font-bold text-accent">404</p>
           <h1 className="mt-4 font-display text-3xl font-bold text-primary dark:text-white">
-            This page has wandered off the trail
+            {t('notFound', 'title')}
           </h1>
           <p className="mx-auto mt-3 max-w-md text-primary-400 dark:text-cream-200/70">
-            The story you were looking for isn't here. But the archive is full
-            of others worth finding.
+            {t('notFound', 'description')}
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link to="/" className="btn-primary">
-              Back to home
+              {t('notFound', 'backHome')}
             </Link>
             <Link to="/martyrs" className="btn-secondary">
-              Explore the martyrs
+              {t('notFound', 'exploreMartyrs')}
             </Link>
           </div>
         </div>

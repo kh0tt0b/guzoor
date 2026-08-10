@@ -7,6 +7,7 @@ import { Reveal } from '../components/Reveal'
 import { SocialShare } from '../components/SocialShare'
 import { HeroSlideshow } from '../components/HeroSlideshow'
 import { assetUrl } from '../lib/assetUrl'
+import { useLanguage } from '../context/LanguageContext'
 import {
   ArrowRightIcon,
   BookOpenIcon,
@@ -67,25 +68,14 @@ const programIcons = {
   users: UsersIcon,
 }
 
-const pillars = [
-  {
-    step: '01',
-    title: 'Recover · استرداد',
-    body: 'We recover the self from beneath the rubble of distortion — restoring what has been misnamed, misremembered, or erased from the record.',
-  },
-  {
-    step: '02',
-    title: 'Root · تأصيل',
-    body: 'We build on deep roots: the sources of the religion, the scholars of the Nile Valley, and the martyrs who defended religion and homeland.',
-  },
-  {
-    step: '03',
-    title: 'Connect · وصل',
-    body: 'We reconnect the Sudanese conscience with itself and with its Islamic world — through the circles, the courses, and the kept memory.',
-  },
-]
+const pillarKeys = [
+  { step: '01', titleKey: 'recoverTitle', bodyKey: 'recoverBody' },
+  { step: '02', titleKey: 'rootTitle', bodyKey: 'rootBody' },
+  { step: '03', titleKey: 'connectTitle', bodyKey: 'connectBody' },
+] as const
 
 export function Home() {
+  const { t } = useLanguage()
   const featured = martyrs.filter((m) => m.featured).slice(0, 3)
   const latestArticles = articles.slice(0, 3)
   const eraCount = new Set(martyrs.map((m) => m.era)).size
@@ -93,6 +83,13 @@ export function Home() {
     src: assetUrl(m.avatar),
     alt: m.name,
   }))
+
+  const stats = [
+    { value: String(martyrs.length), label: t('home', 'statMartyrs') },
+    { value: String(eraCount), label: t('home', 'statCampaigns') },
+    { value: String(courses.length), label: t('home', 'statPrograms') },
+    { value: String(articles.length), label: t('home', 'statArticles') },
+  ]
 
   return (
     <>
@@ -109,27 +106,23 @@ export function Home() {
         <div className="container-page relative flex min-h-[88svh] flex-col items-center justify-center py-24 text-center">
           <Reveal>
             <p className="eyebrow mb-6 text-cream-300">
-              مركز جذور للبناء الفكري والتأصيل · Guzoor, roots for intellectual
-              building
+              {t('home', 'heroEyebrow')}
             </p>
           </Reveal>
           <Reveal delay={100}>
             <h1 className="max-w-4xl font-display text-4xl font-bold leading-[1.08] sm:text-5xl lg:text-6xl">
-              Recovering the Sudanese self, from beneath the{' '}
-              <span className="text-accent-300">rubble of distortion</span>
+              {t('home', 'heroTitlePre')}
+              <span className="text-accent-300">{t('home', 'heroTitleHighlight')}</span>
             </h1>
           </Reveal>
           <Reveal delay={200}>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-cream-100/85 sm:text-lg">
-              Guzoor is an intellectual bellows that keeps the
-              flame of identity alive, reconnecting the Sudanese conscience to
-              itself and to its Islamic world. Study the programs, read the
-              martyrs&apos; stories, join the circles.
+              {t('home', 'heroParagraph')}
             </p>
           </Reveal>
           <Reveal delay={300} className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Link to="/martyrs" className="btn-primary">
-              The Martyrs
+              {t('home', 'ctaMartyrs')}
               <ArrowRightIcon className="h-4 w-4" />
             </Link>
             <a
@@ -138,7 +131,7 @@ export function Home() {
               rel="noopener noreferrer"
               className="btn-secondary"
             >
-              Join the Channel
+              {t('home', 'ctaJoinChannel')}
               <TelegramIcon className="h-4 w-4" />
             </a>
           </Reveal>
@@ -163,7 +156,7 @@ export function Home() {
         />
         <div className="container-page relative">
           <Reveal className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow mb-6 text-accent-300">The Mission</p>
+            <p className="eyebrow mb-6 text-accent-300">{t('home', 'missionEyebrow')}</p>
             <blockquote>
               <p className="font-display text-2xl font-semibold leading-snug text-cream-100 sm:text-3xl">
                 &ldquo;جذور هي محاولة مستمرة لاسترداد الذات من تحت ركام
@@ -171,10 +164,7 @@ export function Home() {
                 الإسلامي&rdquo;
               </p>
               <p className="mt-6 text-base leading-relaxed text-cream-200/80">
-                Guzoor is a continuous attempt to recover the self from beneath
-                the rubble of distortion — an intellectual bellows that
-                reconnects the Sudanese conscience with itself and with its
-                Islamic world.
+                {t('home', 'missionParagraph')}
               </p>
               <footer className="mt-4 text-sm text-cream-300/70">
                 — مركز جذور للبناء الفكري والتأصيل
@@ -188,12 +178,7 @@ export function Home() {
       <section className="bg-cream py-16 dark:bg-primary-900">
         <div className="container-page">
           <dl className="grid grid-cols-2 gap-8 text-center md:grid-cols-4">
-            {[
-              { value: String(martyrs.length), label: 'Martyrs remembered' },
-              { value: String(eraCount), label: 'Campaigns kept alive' },
-              { value: String(courses.length), label: 'Programs & circles' },
-              { value: String(articles.length), label: 'Articles & reflections' },
-            ].map((stat, i) => (
+            {stats.map((stat, i) => (
               <Reveal key={stat.label} delay={i * 80}>
                 <div>
                   <dt className="order-2 mt-2 text-sm text-primary-400 dark:text-cream-200/70">
@@ -214,9 +199,9 @@ export function Home() {
         <div className="container-page">
           <Reveal>
             <SectionHeading
-              eyebrow="The Martyrs"
-              title="The kept names"
-              description="The defenders of religion and homeland whose stories Guzoor publishes and keeps — scholars, fighters, students, and the young knights of the war."
+              eyebrow={t('home', 'martyrsEyebrow')}
+              title={t('home', 'martyrsTitle')}
+              description={t('home', 'martyrsDescription')}
               tone="on-dark"
             />
           </Reveal>
@@ -229,7 +214,7 @@ export function Home() {
           </div>
           <Reveal className="mt-10 text-center">
             <Link to="/martyrs" className="btn-secondary">
-              All the martyrs
+              {t('home', 'allMartyrs')}
               <ArrowRightIcon className="h-4 w-4" />
             </Link>
           </Reveal>
@@ -241,9 +226,9 @@ export function Home() {
         <div className="container-page">
           <Reveal>
             <SectionHeading
-              eyebrow="From the archive"
-              title="Latest reflections"
-              description="Intellectual building, deep-rooting, and the war of narratives — articles written from the channel's own analyses and teachings."
+              eyebrow={t('home', 'articlesEyebrow')}
+              title={t('home', 'articlesTitle')}
+              description={t('home', 'articlesDescription')}
             />
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -255,7 +240,7 @@ export function Home() {
           </div>
           <Reveal className="mt-10 text-center">
             <Link to="/religion" className="btn-primary">
-              Read the archive
+              {t('home', 'readArchive')}
               <ArrowRightIcon className="h-4 w-4" />
             </Link>
           </Reveal>
@@ -267,9 +252,9 @@ export function Home() {
         <div className="container-page">
           <Reveal>
             <SectionHeading
-              eyebrow="Programs & Circles"
-              title="The working roots"
-              description="The forums, circles, and courses through which Guzoor builds — the tauhidic exegesis, the circles of thought and remembrance, the knowledge club, and the courses rooted in the Sudanese reality."
+              eyebrow={t('home', 'programsEyebrow')}
+              title={t('home', 'programsTitle')}
+              description={t('home', 'programsDescription')}
             />
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -308,23 +293,23 @@ export function Home() {
         <div className="container-page">
           <Reveal>
             <SectionHeading
-              eyebrow="How Guzoor works"
-              title="Three movements of the bellows"
+              eyebrow={t('home', 'pillarsEyebrow')}
+              title={t('home', 'pillarsTitle')}
               tone="on-dark"
             />
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {pillars.map((item) => (
+            {pillarKeys.map((item) => (
               <Reveal key={item.step}>
                 <article className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6">
                   <span className="font-display text-3xl font-bold text-accent/50">
                     {item.step}
                   </span>
                   <h3 className="mt-3 font-display text-xl font-semibold">
-                    {item.title}
+                    {t('pillars', item.titleKey)}
                   </h3>
                   <p className="mt-3 text-sm leading-relaxed text-cream-200/75">
-                    {item.body}
+                    {t('pillars', item.bodyKey)}
                   </p>
                 </article>
               </Reveal>
@@ -339,15 +324,15 @@ export function Home() {
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
             <Reveal>
               <SectionHeading
-                eyebrow="Listen & Watch"
-                title="From the circles"
-                description="A selection of the center's media — the tauhidic readings, the circles of remembrance, and the poetry of the martyrs."
+                eyebrow={t('home', 'listenEyebrow')}
+                title={t('home', 'listenTitle')}
+                description={t('home', 'listenDescription')}
                 tone="on-dark"
               />
             </Reveal>
             <Reveal delay={100}>
               <Link to="/religion" className="btn-secondary shrink-0">
-                All media
+                {t('home', 'allMedia')}
                 <ArrowRightIcon className="h-4 w-4" />
               </Link>
             </Reveal>
@@ -391,14 +376,12 @@ export function Home() {
           <div className="max-w-xl">
             <Reveal>
               <h2 className="font-display text-3xl font-bold sm:text-4xl">
-                The empty chair in Guzoor is waiting for you.
+                {t('home', 'joinTitle')}
               </h2>
             </Reveal>
             <Reveal delay={120}>
               <p className="mt-4 text-white/90">
-                Join the channel, sit in the circles, and carry the word that
-                becomes an idea — the idea that fruits into consciousness, and
-                the consciousness that rises into building.
+                {t('home', 'joinParagraph')}
               </p>
             </Reveal>
           </div>
@@ -409,7 +392,7 @@ export function Home() {
               rel="noopener noreferrer"
               className="btn-cream"
             >
-              Join the Channel
+              {t('home', 'ctaJoinChannel')}
               <TelegramIcon className="h-4 w-4" />
             </a>
             <a
@@ -418,7 +401,7 @@ export function Home() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border-2 border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
             >
-              All Guzoor links
+              {t('home', 'allLinks')}
               <QuoteIcon className="h-4 w-4" />
             </a>
           </Reveal>

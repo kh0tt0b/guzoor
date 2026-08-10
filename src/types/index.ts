@@ -1,15 +1,21 @@
 export interface Martyr {
   id: string
   name: string
+  nameAr?: string
   title: string
+  titleAr?: string
   region: string
   year: number
   era: string
   shortBio: string
+  shortBioAr?: string
   biography: string[]
+  biographyAr?: string[]
   avatar: string
   virtues: string[]
+  virtuesAr?: string[]
   quote: string
+  quoteAr?: string
   caption?: string
   source?: string
   featured?: boolean
@@ -31,6 +37,16 @@ export interface FaqItem {
   id: string
   question: string
   answer: string
+}
+
+export interface Lecture {
+  id: string
+  title: string
+  arabicTitle: string
+  speaker: string
+  series?: string
+  date: string
+  description: string
 }
 
 export interface Sermon {
