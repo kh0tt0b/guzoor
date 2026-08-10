@@ -121,7 +121,7 @@ export function Home() {
           </Reveal>
           <Reveal delay={200}>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-cream-100/85 sm:text-lg">
-              Guzoor is an intellectual bellows — a نفّاج معرفي — that keeps the
+              Guzoor is an intellectual bellows that keeps the
               flame of identity alive, reconnecting the Sudanese conscience to
               itself and to its Islamic world. Study the programs, read the
               martyrs&apos; stories, join the circles.
