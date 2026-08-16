@@ -6,11 +6,11 @@ backend:
   auth_endpoint: auth
 
 media_folder: "public/heroes"
-public_folder: "/heroes"
+public_folder: "/guzoor/heroes"
 
 site_url: https://kh0tt0b.github.io/guzoor
 display_url: https://kh0tt0b.github.io/guzoor
-logo_url: /favicon.svg
+logo_url: /guzoor/favicon.svg
 
 locale: "en"
 
