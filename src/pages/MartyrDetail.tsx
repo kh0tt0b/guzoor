@@ -39,7 +39,7 @@ export function MartyrDetail() {
         </p>
         <Link to="/martyrs" className="btn-primary mt-8">
           {t('martyrDetail', 'backToMartyrs')}
-          <ArrowRightIcon className="h-4 w-4" />
+          <ArrowRightIcon className="h-4 w-4 rtl:rotate-180" />
         </Link>
       </div>
     )
@@ -80,7 +80,7 @@ export function MartyrDetail() {
             </nav>
           </Reveal>
 
-          <div className="flex flex-col items-center gap-10 text-center lg:flex-row lg:items-start lg:text-left">
+          <div className="flex flex-col items-center gap-10 text-center lg:flex-row lg:items-start lg:text-start">
             <Reveal className="shrink-0">
               <div className="relative mx-auto h-44 w-44 overflow-hidden rounded-full ring-4 ring-accent/40 lg:mx-0 lg:h-52 lg:w-52">
                 <LazyImage
@@ -126,7 +126,7 @@ export function MartyrDetail() {
 
               {martyr.caption && (
                 <Reveal delay={280} className="mt-6">
-                  <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 text-left">
+                  <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 text-start">
                     <div className="flex flex-wrap items-center justify-between gap-3">
                       <p className="eyebrow text-accent-300">{t('martyrDetail', 'readyToShare')}</p>
                       <button
@@ -230,7 +230,7 @@ export function MartyrDetail() {
           </div>
 
           <Reveal delay={120}>
-            <blockquote className="mt-10 rounded-2xl border-l-4 border-accent bg-accent/10 p-6 dark:bg-accent/15">
+            <blockquote className="mt-10 rounded-2xl border-s-4 border-accent bg-accent/10 p-6 dark:bg-accent/15">
               <QuoteIcon className="h-6 w-6 text-accent" />
               <p className="mt-3 font-display text-xl font-semibold leading-relaxed text-primary-700 dark:text-cream-100">
                 &ldquo;{quote}&rdquo;

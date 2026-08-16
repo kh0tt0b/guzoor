@@ -26,7 +26,7 @@ export function MartyrCard({ martyr }: { martyr: Martyr }) {
           wrapperClassName="h-full w-full"
           className="transition-transform duration-500 group-hover:scale-105"
         />
-        <span className="absolute left-3 top-3 rounded-full bg-primary-700/85 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+        <span className="absolute start-3 top-3 rounded-full bg-primary-700/85 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
           {t('eras', martyr.era)}
         </span>
       </Link>
@@ -67,7 +67,7 @@ export function MartyrCard({ martyr }: { martyr: Martyr }) {
             className="inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-accent transition-colors hover:text-accent-400"
           >
             {t('martyrCard', 'readStory')}
-            <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            <ArrowRightIcon className="h-4 w-4 rtl:rotate-180 transition-transform group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5" />
           </Link>
         </div>
       </div>

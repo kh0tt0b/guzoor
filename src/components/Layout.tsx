@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom'
 import { Navbar } from './Navbar'
 import { Footer } from './Footer'
 import { ScrollToTop } from './ScrollToTop'
+import { useLanguage } from '../context/LanguageContext'
 
 function PageLoader() {
   return (
@@ -20,13 +21,14 @@ function PageLoader() {
 }
 
 export function Layout() {
+  const { t } = useLanguage()
   return (
     <div className="flex min-h-svh flex-col">
       <a
         href="#main-content"
-        className="sr-only z-50 focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-white"
+        className="sr-only z-50 focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-white"
       >
-        Skip to main content
+        {t('nav', 'skipToContent')}
       </a>
       <ScrollToTop />
       <Navbar />

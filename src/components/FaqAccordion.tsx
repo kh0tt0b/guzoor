@@ -32,7 +32,7 @@ export function FaqAccordion({ items }: FaqAccordionProps) {
                 id={`faq-trigger-${item.id}`}
                 onClick={() => setOpenId(isOpen ? null : item.id)}
                 className={cn(
-                  'flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition-colors',
+                  'flex w-full items-center justify-between gap-4 px-5 py-4 text-start transition-colors',
                   isOpen
                     ? 'bg-accent/10 dark:bg-accent/20'
                     : 'hover:bg-accent/5 dark:hover:bg-white/5',

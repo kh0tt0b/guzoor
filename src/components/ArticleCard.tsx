@@ -36,7 +36,7 @@ export function ArticleCard({ article }: { article: Article }) {
           className="inline-flex items-center gap-1.5 font-semibold text-accent transition-colors hover:text-accent-400"
         >
           {t('religion', 'readEyebrow')}
-          <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+          <ArrowRightIcon className="h-4 w-4 rtl:rotate-180 transition-transform group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5" />
         </Link>
       </div>
     </article>

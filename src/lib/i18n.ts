@@ -11,6 +11,7 @@ export const translations = {
     switchLanguage: { en: 'العربية', ar: 'English' },
     openMenu: { en: 'Open menu', ar: 'فتح القائمة' },
     closeMenu: { en: 'Close menu', ar: 'إغلاق القائمة' },
+    skipToContent: { en: 'Skip to main content', ar: 'تخطَّ إلى المحتوى الرئيسي' },
   },
   footer: {
     tagline: {
@@ -161,6 +162,10 @@ export const translations = {
     video: { en: 'Video', ar: 'فيديو' },
     audio: { en: 'Audio', ar: 'صوت' },
     loading: { en: 'Loading…', ar: 'جارٍ التحميل…' },
+    mediaUnavailable: {
+      en: "This recording isn't available right now.",
+      ar: 'هذا التسجيل غير متاح حاليًا.',
+    },
     lecturesEyebrow: { en: 'Learn', ar: 'تعلّم' },
     lecturesTitle: { en: 'Lectures & sessions', ar: 'محاضرات ومجالس' },
     lecturesDescription: {

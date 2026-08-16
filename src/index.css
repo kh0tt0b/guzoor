@@ -103,6 +103,10 @@
   .eyebrow {
     @apply text-xs font-bold uppercase tracking-[0.18em];
   }
+
+  .input {
+    @apply w-full rounded-xl border-0 bg-cream px-4 py-3 text-sm text-primary ring-1 ring-accent/20 transition-colors placeholder:text-primary-300 focus:outline-none focus:ring-2 focus:ring-accent dark:bg-primary-700 dark:text-white dark:ring-primary-500 dark:placeholder:text-cream-200/40;
+  }
 }
 
 @keyframes kenburns {

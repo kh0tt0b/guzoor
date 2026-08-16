@@ -124,7 +124,7 @@ export function Home() {
           <Reveal delay={300} className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Link to="/martyrs" className="btn-primary">
               {t('home', 'ctaMartyrs')}
-              <ArrowRightIcon className="h-4 w-4" />
+              <ArrowRightIcon className="h-4 w-4 rtl:rotate-180" />
             </Link>
             <a
               href="https://t.me/rootsplatform"
@@ -216,7 +216,7 @@ export function Home() {
           <Reveal className="mt-10 text-center">
             <Link to="/martyrs" className="btn-secondary">
               {t('home', 'allMartyrs')}
-              <ArrowRightIcon className="h-4 w-4" />
+              <ArrowRightIcon className="h-4 w-4 rtl:rotate-180" />
             </Link>
           </Reveal>
         </div>
@@ -242,7 +242,7 @@ export function Home() {
           <Reveal className="mt-10 text-center">
             <Link to="/religion" className="btn-primary">
               {t('home', 'readArchive')}
-              <ArrowRightIcon className="h-4 w-4" />
+              <ArrowRightIcon className="h-4 w-4 rtl:rotate-180" />
             </Link>
           </Reveal>
         </div>
@@ -334,7 +334,7 @@ export function Home() {
             <Reveal delay={100}>
               <Link to="/religion" className="btn-secondary shrink-0">
                 {t('home', 'allMedia')}
-                <ArrowRightIcon className="h-4 w-4" />
+                <ArrowRightIcon className="h-4 w-4 rtl:rotate-180" />
               </Link>
             </Reveal>
           </div>
@@ -373,7 +373,7 @@ export function Home() {
               'radial-gradient(circle at 15% 20%, rgba(38,19,12,0.9) 0, transparent 50%), radial-gradient(circle at 85% 80%, rgba(38,19,12,0.9) 0, transparent 45%)',
           }}
         />
-        <div className="container-page relative flex flex-col items-center justify-between gap-8 text-center lg:flex-row lg:text-left">
+        <div className="container-page relative flex flex-col items-center justify-between gap-8 text-center lg:flex-row lg:text-start">
           <div className="max-w-xl">
             <Reveal>
               <h2 className="font-display text-3xl font-bold sm:text-4xl">

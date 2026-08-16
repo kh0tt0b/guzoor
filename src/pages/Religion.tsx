@@ -98,7 +98,7 @@ export function Religion() {
                           id={`sermon-tab-${sermon.id}`}
                           onClick={() => setSelectedSermonId(sermon.id)}
                           className={cn(
-                            'flex w-full items-start gap-3 rounded-xl p-3 text-left transition-colors',
+                            'flex w-full items-start gap-3 rounded-xl p-3 text-start transition-colors',
                             isActive
                               ? 'bg-accent text-white shadow-sm'
                               : 'text-primary hover:bg-accent/10 dark:text-cream-200 dark:hover:bg-white/5',

@@ -63,14 +63,14 @@ export function Martyrs() {
               <label htmlFor="martyr-search" className="sr-only">
                 {t('martyrsPage', 'searchLabel')}
               </label>
-              <SearchIcon className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-primary-300 dark:text-cream-200/50" />
+              <SearchIcon className="pointer-events-none absolute start-4 top-1/2 h-5 w-5 -translate-y-1/2 text-primary-300 dark:text-cream-200/50" />
               <input
                 id="martyr-search"
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder={t('martyrsPage', 'searchPlaceholder')}
-                className="input pl-12"
+                className="input ps-12"
               />
             </div>
 

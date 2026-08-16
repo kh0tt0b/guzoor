@@ -7,7 +7,7 @@ import {
   type SyntheticEvent,
 } from 'react'
 import type { Sermon } from '../types'
-import { PauseIcon, PlayIcon } from './icons'
+import { AlertIcon, PauseIcon, PlayIcon } from './icons'
 import { cn } from '../lib/cn'
 import { useLanguage } from '../context/LanguageContext'
 
@@ -30,6 +30,7 @@ export function MediaPlayer({ sermon, autoPlay = false }: MediaPlayerProps) {
   const [current, setCurrent] = useState(0)
   const [duration, setDuration] = useState(0)
   const [loading, setLoading] = useState(true)
+  const [errored, setErrored] = useState(false)
 
   const togglePlay = useCallback(() => {
     const media = mediaRef.current
@@ -53,6 +54,7 @@ export function MediaPlayer({ sermon, autoPlay = false }: MediaPlayerProps) {
     setDuration(0)
     setPlaying(false)
     setLoading(true)
+    setErrored(false)
   }, [sermon.id])
 
   const handlePlay = () => setPlaying(true)
@@ -63,6 +65,10 @@ export function MediaPlayer({ sermon, autoPlay = false }: MediaPlayerProps) {
     setDuration(e.currentTarget.duration)
     setLoading(false)
   }
+  const handleError = () => {
+    setLoading(false)
+    setErrored(true)
+  }
 
   const mediaEvents = {
     onPlay: handlePlay,
@@ -70,18 +76,28 @@ export function MediaPlayer({ sermon, autoPlay = false }: MediaPlayerProps) {
     onTimeUpdate: handleTimeUpdate,
     onLoadedMetadata: handleLoadedMetadata,
     onEnded: handlePause,
+    onError: handleError,
   }
 
   useEffect(() => {
-    if (!autoPlay) return
+    if (!autoPlay || errored) return
     const media = mediaRef.current
-    if (media) void media.play()
-  }, [autoPlay])
+    if (media) void media.play().catch(() => setErrored(true))
+  }, [autoPlay, errored])
 
   const videoRef = mediaRef as unknown as RefObject<HTMLVideoElement>
   const audioRef = mediaRef as unknown as RefObject<HTMLAudioElement>
 
   const progress = duration > 0 ? (current / duration) * 100 : 0
+
+  if (errored) {
+    return (
+      <div className="flex aspect-video w-full flex-col items-center justify-center gap-3 rounded-2xl bg-primary-900 p-8 text-center shadow-card ring-1 ring-accent/30 sm:aspect-auto sm:py-10">
+        <AlertIcon className="h-8 w-8 text-accent-300" />
+        <p className="text-sm text-cream-200/80">{t('religion', 'mediaUnavailable')}</p>
+      </div>
+    )
+  }
 
   return (
     <div className="overflow-hidden rounded-2xl bg-primary-900 shadow-card ring-1 ring-accent/30">
