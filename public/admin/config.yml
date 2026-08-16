@@ -1,0 +1,169 @@
+backend:
+  name: github
+  repo: kh0tt0b/guzoor
+  branch: main
+  base_url: https://YOUR-OAUTH-PROXY-URL
+  auth_endpoint: auth
+
+media_folder: "public/heroes"
+public_folder: "/heroes"
+
+site_url: https://kh0tt0b.github.io/guzoor
+display_url: https://kh0tt0b.github.io/guzoor
+logo_url: /favicon.svg
+
+locale: "en"
+
+collections:
+  - name: martyrs
+    label: "Martyrs"
+    label_singular: "Martyrs list"
+    files:
+      - name: martyrs
+        label: "Martyrs"
+        file: "src/content/martyrs.json"
+        fields:
+          - label: "Martyrs"
+            name: martyrs
+            widget: list
+            summary: "{{fields.name}} — {{fields.title}}"
+            fields:
+              - { label: "ID (URL slug, lowercase-with-dashes, must stay unique)", name: id, widget: string }
+              - { label: "Source URL (Telegram or Instagram post link)", name: source, widget: string, required: false }
+              - { label: "Name (English)", name: name, widget: string }
+              - { label: "Name (Arabic)", name: nameAr, widget: string, required: false }
+              - { label: "Title / epithet (English)", name: title, widget: string }
+              - { label: "Title / epithet (Arabic)", name: titleAr, widget: string, required: false }
+              - label: "Region"
+                name: region
+                widget: select
+                options: ["Khartoum", "Darfur", "South", "Sudan", "Bosnia"]
+              - { label: "Year", name: year, widget: number, value_type: int }
+              - label: "Campaign / era"
+                name: era
+                widget: select
+                options: ["Lines of the Homeland", "Liberation of Khartoum", "Battle of Karama", "Srebrenica · Bosnia"]
+              - { label: "Short bio (English) — shown on cards", name: shortBio, widget: text }
+              - { label: "Short bio (Arabic)", name: shortBioAr, widget: text, required: false }
+              - { label: "Full biography (English) — one paragraph per item", name: biography, widget: list, field: { label: Paragraph, name: paragraph, widget: text } }
+              - { label: "Full biography (Arabic)", name: biographyAr, widget: list, field: { label: Paragraph, name: paragraph, widget: text }, required: false }
+              - { label: "Portrait image", name: avatar, widget: image }
+              - { label: "Virtues (English) — short words/phrases", name: virtues, widget: list }
+              - { label: "Virtues (Arabic)", name: virtuesAr, widget: list, required: false }
+              - { label: "Pull quote (English)", name: quote, widget: string }
+              - { label: "Pull quote (Arabic)", name: quoteAr, widget: string, required: false }
+              - { label: "Share caption (Arabic, from the original post)", name: caption, widget: text, required: false }
+              - { label: "Featured on homepage?", name: featured, widget: boolean, required: false, default: false }
+
+  - name: articles
+    label: "Articles"
+    files:
+      - name: articles
+        label: "Articles"
+        file: "src/content/articles.json"
+        fields:
+          - label: "Articles"
+            name: articles
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "ID (URL slug)", name: id, widget: string }
+              - { label: "Title (English)", name: title, widget: string }
+              - { label: "Title (Arabic)", name: titleAr, widget: string, required: false }
+              - { label: "Excerpt (English)", name: excerpt, widget: text }
+              - { label: "Excerpt (Arabic)", name: excerptAr, widget: text, required: false }
+              - { label: "Content (English) — one paragraph per item", name: content, widget: list, field: { label: Paragraph, name: paragraph, widget: text } }
+              - { label: "Content (Arabic)", name: contentAr, widget: list, field: { label: Paragraph, name: paragraph, widget: text }, required: false }
+              - label: "Category"
+                name: category
+                widget: select
+                options: ["Politics & Thought", "Reflections", "Teachings", "History"]
+              - { label: "Author (English)", name: author, widget: string }
+              - { label: "Author (Arabic)", name: authorAr, widget: string, required: false }
+              - { label: "Date", name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
+              - { label: "Read time (English), e.g. '6 min read'", name: readTime, widget: string }
+              - { label: "Read time (Arabic), e.g. '6 دقائق قراءة'", name: readTimeAr, widget: string, required: false }
+              - { label: "Cover image", name: image, widget: image, required: false }
+
+  - name: lectures
+    label: "Lectures & Sessions"
+    files:
+      - name: lectures
+        label: "Lectures"
+        file: "src/content/lectures.json"
+        fields:
+          - label: "Lectures"
+            name: lectures
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "ID (URL slug)", name: id, widget: string }
+              - { label: "Title (English)", name: title, widget: string }
+              - { label: "Title (Arabic)", name: arabicTitle, widget: string }
+              - { label: "Speaker", name: speaker, widget: string }
+              - { label: "Series name (optional)", name: series, widget: string, required: false }
+              - { label: "Date", name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
+              - { label: "Description (English)", name: description, widget: text }
+              - { label: "Description (Arabic)", name: descriptionAr, widget: text, required: false }
+
+  - name: sermons
+    label: "Sermons"
+    files:
+      - name: sermons
+        label: "Sermons"
+        file: "src/content/sermons.json"
+        fields:
+          - label: "Sermons"
+            name: sermons
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "ID (URL slug)", name: id, widget: string }
+              - { label: "Title (English)", name: title, widget: string }
+              - { label: "Title (Arabic)", name: titleAr, widget: string, required: false }
+              - { label: "Speaker", name: speaker, widget: string }
+              - { label: "Duration, e.g. '18:15'", name: duration, widget: string }
+              - { label: "Type", name: type, widget: select, options: ["video", "audio"] }
+              - { label: "Media URL (real recording link, replacing the placeholder)", name: src, widget: string }
+              - { label: "Poster image (video only)", name: poster, widget: image, required: false }
+              - { label: "Description (English)", name: description, widget: text }
+              - { label: "Description (Arabic)", name: descriptionAr, widget: text, required: false }
+
+  - name: faqs
+    label: "FAQ"
+    files:
+      - name: faqs
+        label: "Frequently Asked Questions"
+        file: "src/content/faqs.json"
+        fields:
+          - label: "Questions"
+            name: faqs
+            widget: list
+            summary: "{{fields.question}}"
+            fields:
+              - { label: "ID (URL slug)", name: id, widget: string }
+              - { label: "Question (English)", name: question, widget: string }
+              - { label: "Question (Arabic)", name: questionAr, widget: string, required: false }
+              - { label: "Answer (English)", name: answer, widget: text }
+              - { label: "Answer (Arabic)", name: answerAr, widget: text, required: false }
+
+  - name: courses
+    label: "Programs & Circles"
+    files:
+      - name: courses
+        label: "Programs"
+        file: "src/content/courses.json"
+        fields:
+          - label: "Programs"
+            name: courses
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "ID (URL slug)", name: id, widget: string }
+              - { label: "Title (English)", name: title, widget: string }
+              - { label: "Title (Arabic)", name: arabicTitle, widget: string }
+              - { label: "Schedule, e.g. 'Sundays · 8:00pm Sudan time'", name: schedule, widget: string }
+              - { label: "Presenter (optional)", name: presenter, widget: string, required: false }
+              - { label: "Description (English)", name: description, widget: text }
+              - { label: "Description (Arabic)", name: descriptionAr, widget: text, required: false }
+              - { label: "Icon", name: icon, widget: select, options: ["book", "heart", "pen", "users"], required: false }

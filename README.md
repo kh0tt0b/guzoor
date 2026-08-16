@@ -4,7 +4,11 @@
 
 ## Content sources
 
-The martyrs' stories, programs, and article themes are drawn from the public Telegram channel `https://t.me/rootsplatform` (all 597 posts pulled via the `t.me/s/` preview). The full raw corpus is not committed to the repo.
+The martyrs' stories, programs, and article themes are drawn from the public Telegram channel `https://t.me/rootsplatform` (all 597 posts pulled via the `t.me/s/` preview). The full raw corpus is not committed to the repo. Before adding or editing content, see [`CONTRIBUTING.md`](./CONTRIBUTING.md) for the source-verification checklist.
+
+## Editing content
+
+All martyr, article, lecture, sermon, FAQ, and program content lives as JSON in [`src/content/`](./src/content/), in English and Arabic side by side. It can be edited directly, or through the admin page at `/admin` (Decap CMS) — see [`ADMIN_SETUP.md`](./ADMIN_SETUP.md) for the one-time setup.
 
 ![Palette](https://img.shields.io/badge/palette-%234A301D%20%7C%20%23EFECE3%20%7C%20%23683A1D-683A1D)
 
