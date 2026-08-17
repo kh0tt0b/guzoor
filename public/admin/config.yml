@@ -2,7 +2,7 @@ backend:
   name: github
   repo: kh0tt0b/guzoor
   branch: main
-  base_url: https://YOUR-OAUTH-PROXY-URL
+  base_url: https://guzoor-oauth.khattabafas.workers.dev
   auth_endpoint: auth
 
 media_folder: "public/heroes"
