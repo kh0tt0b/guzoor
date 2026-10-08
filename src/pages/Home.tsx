@@ -86,7 +86,6 @@ export function Home() {
   }))
 
   const stats = [
-    { value: String(martyrs.length), label: t('home', 'statMartyrs') },
     { value: String(eraCount), label: t('home', 'statCampaigns') },
     { value: String(courses.length), label: t('home', 'statPrograms') },
     { value: String(articles.length), label: t('home', 'statArticles') },
@@ -178,7 +177,7 @@ export function Home() {
       {/* ============ STATS ============ */}
       <section className="bg-cream py-16 dark:bg-primary-900">
         <div className="container-page">
-          <dl className="grid grid-cols-2 gap-8 text-center md:grid-cols-4">
+          <dl className="grid grid-cols-1 gap-8 text-center sm:grid-cols-3">
             {stats.map((stat, i) => (
               <Reveal key={stat.label} delay={i * 80}>
                 <div>
@@ -240,7 +239,7 @@ export function Home() {
             ))}
           </div>
           <Reveal className="mt-10 text-center">
-            <Link to="/religion" className="btn-primary">
+            <Link to="/forums" className="btn-primary">
               {t('home', 'readArchive')}
               <ArrowRightIcon className="h-4 w-4 rtl:rotate-180" />
             </Link>
@@ -332,7 +331,7 @@ export function Home() {
               />
             </Reveal>
             <Reveal delay={100}>
-              <Link to="/religion" className="btn-secondary shrink-0">
+              <Link to="/forums" className="btn-secondary shrink-0">
                 {t('home', 'allMedia')}
                 <ArrowRightIcon className="h-4 w-4 rtl:rotate-180" />
               </Link>
@@ -342,7 +341,7 @@ export function Home() {
             {sermons.slice(0, 2).map((s, i) => (
               <Reveal key={s.id} delay={i * 80}>
                 <Link
-                  to={`/religion#sermon-${s.id}`}
+                  to={`/forums#sermon-${s.id}`}
                   className="card card-hover flex items-center gap-5 p-5"
                 >
                   <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-accent text-white">

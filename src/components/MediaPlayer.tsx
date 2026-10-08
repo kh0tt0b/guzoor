@@ -94,7 +94,7 @@ export function MediaPlayer({ sermon, autoPlay = false }: MediaPlayerProps) {
     return (
       <div className="flex aspect-video w-full flex-col items-center justify-center gap-3 rounded-2xl bg-primary-900 p-8 text-center shadow-card ring-1 ring-accent/30 sm:aspect-auto sm:py-10">
         <AlertIcon className="h-8 w-8 text-accent-300" />
-        <p className="text-sm text-cream-200/80">{t('religion', 'mediaUnavailable')}</p>
+        <p className="text-sm text-cream-200/80">{t('forums', 'mediaUnavailable')}</p>
       </div>
     )
   }
@@ -146,7 +146,7 @@ export function MediaPlayer({ sermon, autoPlay = false }: MediaPlayerProps) {
             <div className="flex items-center justify-between gap-3 text-xs text-cream-200/70">
               <span>{formatTime(current)}</span>
               <span className="truncate px-2 font-medium text-cream-100">
-                {loading ? t('religion', 'loading') : `${sermon.duration}`}
+                {loading ? t('forums', 'loading') : `${sermon.duration}`}
               </span>
               <span>{formatTime(duration)}</span>
             </div>

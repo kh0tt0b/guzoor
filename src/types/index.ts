@@ -82,3 +82,19 @@ export interface Course {
 }
 
 export type FilterCategory = 'all' | string
+
+export interface Forum {
+  id: string
+  title: string
+  titleAr?: string
+  /** ISO date (YYYY-MM-DD) of the forum. */
+  date: string
+  time?: string
+  location?: string
+  locationAr?: string
+  speaker?: string
+  description?: string
+  descriptionAr?: string
+  /** Telegram post, registration form, or livestream link. */
+  link?: string
+}

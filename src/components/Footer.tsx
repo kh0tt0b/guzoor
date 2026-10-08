@@ -13,7 +13,7 @@ import {
 const quickLinks = [
   { to: '/', key: 'home' },
   { to: '/martyrs', key: 'martyrs' },
-  { to: '/religion', key: 'religion' },
+  { to: '/forums', key: 'forums' },
 ] as const
 
 const socialLinks = [

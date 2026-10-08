@@ -167,3 +167,27 @@ collections:
               - { label: "Description (English)", name: description, widget: text }
               - { label: "Description (Arabic)", name: descriptionAr, widget: text, required: false }
               - { label: "Icon", name: icon, widget: select, options: ["book", "heart", "pen", "users"], required: false }
+
+  - name: forums
+    label: "Forums (upcoming & past)"
+    files:
+      - name: forums
+        label: "Forums"
+        file: "src/content/forums.json"
+        fields:
+          - label: "Forums"
+            name: forums
+            widget: list
+            summary: "{{fields.date}} — {{fields.title}}"
+            fields:
+              - { label: "ID (URL slug)", name: id, widget: string }
+              - { label: "Title (English)", name: title, widget: string }
+              - { label: "Title (Arabic)", name: titleAr, widget: string, required: false }
+              - { label: "Date", name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
+              - { label: "Time, e.g. '8:00pm Sudan time'", name: time, widget: string, required: false }
+              - { label: "Location (English)", name: location, widget: string, required: false }
+              - { label: "Location (Arabic)", name: locationAr, widget: string, required: false }
+              - { label: "Speaker", name: speaker, widget: string, required: false }
+              - { label: "Link (Telegram post / registration)", name: link, widget: string, required: false }
+              - { label: "Description (English)", name: description, widget: text, required: false }
+              - { label: "Description (Arabic)", name: descriptionAr, widget: text, required: false }

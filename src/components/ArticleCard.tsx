@@ -18,7 +18,7 @@ export function ArticleCard({ article }: { article: Article }) {
       </span>
       <h3 className="mt-4 text-lg font-semibold leading-snug">
         <Link
-          to={`/religion#article-${article.id}`}
+          to={`/forums#article-${article.id}`}
           className="transition-colors hover:text-accent"
         >
           {title}
@@ -32,10 +32,10 @@ export function ArticleCard({ article }: { article: Article }) {
           {author} · {readTime}
         </span>
         <Link
-          to={`/religion#article-${article.id}`}
+          to={`/forums#article-${article.id}`}
           className="inline-flex items-center gap-1.5 font-semibold text-accent transition-colors hover:text-accent-400"
         >
-          {t('religion', 'readEyebrow')}
+          {t('forums', 'readEyebrow')}
           <ArrowRightIcon className="h-4 w-4 rtl:rotate-180 transition-transform group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5" />
         </Link>
       </div>

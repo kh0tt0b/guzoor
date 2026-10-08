@@ -8,7 +8,7 @@ import { CloseIcon, GlobeIcon, MenuIcon, MoonIcon, SunIcon } from './icons'
 const NAV_LINKS = [
   { to: '/', key: 'home', end: true },
   { to: '/martyrs', key: 'martyrs', end: false },
-  { to: '/religion', key: 'religion', end: false },
+  { to: '/forums', key: 'forums', end: false },
 ] as const
 
 function Logo() {
@@ -105,10 +105,6 @@ export function Navbar() {
               <MoonIcon className="h-5 w-5" />
             )}
           </button>
-
-          <Link to="/martyrs" className="btn-primary hidden md:inline-flex">
-            {t('nav', 'ctaMartyrs')}
-          </Link>
 
           <button
             type="button"

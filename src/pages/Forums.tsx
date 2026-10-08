@@ -4,7 +4,7 @@ import { SectionHeading } from '../components/SectionHeading'
 import { Reveal } from '../components/Reveal'
 import { MediaPlayer } from '../components/MediaPlayer'
 import { FaqAccordion } from '../components/FaqAccordion'
-import { ChevronDownIcon, CalendarIcon, PlayIcon } from '../components/icons'
+import { ChevronDownIcon, CalendarIcon, MapPinIcon, PlayIcon, TelegramIcon } from '../components/icons'
 import { cn } from '../lib/cn'
 import { useLanguage } from '../context/LanguageContext'
 import { pick } from '../lib/i18n'
@@ -12,13 +12,26 @@ import { sermons } from '../data/sermons'
 import { articles, articleCategories } from '../data/articles'
 import { faqs } from '../data/faqs'
 import { lectures } from '../data/lectures'
+import { getUpcomingForums } from '../data/forums'
 
-export function Religion() {
+export function Forums() {
   const { t, language } = useLanguage()
   const [selectedSermonId, setSelectedSermonId] = useState(sermons[0].id)
   const [category, setCategory] = useState('all')
 
   const selectedSermon = sermons.find((s) => s.id === selectedSermonId) ?? sermons[0]
+
+  const upcoming = useMemo(() => getUpcomingForums(), [])
+  const pastLectures = useMemo(
+    () => [...lectures].sort((a, b) => b.date.localeCompare(a.date)),
+    [],
+  )
+  const formatDate = (date: string) =>
+    new Date(date).toLocaleDateString(language === 'ar' ? 'ar' : 'en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })
 
   const visibleArticles = useMemo(
     () =>
@@ -31,20 +44,103 @@ export function Religion() {
   return (
     <>
       <Seo
-        title="The Word, Remembered Aloud — Religion & Teachings"
-        description="Sermons, meditations, and articles on Sudan's religious heritage — the khalwas, the Sufi paths, the Mahdiyya, and the recovery of the self."
-        path="/religion"
+        title="Forums — Guzoor"
+        description="The forums Guzoor has held and those still to come: dates, speakers, recordings, and articles."
+        path="/forums"
       />
 
       <section className="bg-primary-900 py-14 text-white">
         <div className="container-page text-center">
-          <p className="eyebrow mb-3 text-cream-300">{t('religion', 'eyebrow')}</p>
+          <p className="eyebrow mb-3 text-cream-300">{t('forums', 'eyebrow')}</p>
           <h1 className="font-display text-3xl font-bold sm:text-4xl">
-            {t('religion', 'title')}
+            {t('forums', 'title')}
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-cream-100/80">
-            {t('religion', 'description')}
+            {t('forums', 'description')}
           </p>
+        </div>
+      </section>
+
+      {/* ============ UPCOMING FORUMS ============ */}
+      <section className="bg-cream py-20 dark:bg-primary-900">
+        <div className="container-page">
+          <Reveal>
+            <SectionHeading
+              eyebrow={t('forums', 'upcomingEyebrow')}
+              title={t('forums', 'upcomingTitle')}
+              description={t('forums', 'upcomingDescription')}
+            />
+          </Reveal>
+
+          {upcoming.length === 0 ? (
+            <Reveal className="mx-auto mt-10 max-w-xl">
+              <div className="card p-8 text-center">
+                <p className="leading-relaxed text-primary-400 dark:text-cream-200/75">
+                  {t('forums', 'upcomingEmpty')}
+                </p>
+                <a
+                  href="https://t.me/rootsplatform"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary mt-6 inline-flex items-center gap-2"
+                >
+                  <TelegramIcon className="h-5 w-5" />
+                  {t('forums', 'followTelegram')}
+                </a>
+              </div>
+            </Reveal>
+          ) : (
+            <div className="mx-auto mt-10 max-w-3xl space-y-4">
+              {upcoming.map((forum, i) => {
+                const location = pick(language, forum.location ?? '', forum.locationAr)
+                const description = pick(language, forum.description ?? '', forum.descriptionAr)
+                return (
+                  <Reveal key={forum.id} delay={i * 60}>
+                    <article className="card p-6">
+                      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-primary-400 dark:text-cream-200/60">
+                        <span className="inline-flex items-center gap-1.5 font-semibold text-accent">
+                          <CalendarIcon className="h-3.5 w-3.5" />
+                          {formatDate(forum.date)}
+                          {forum.time ? ` · ${forum.time}` : ''}
+                        </span>
+                        {location && (
+                          <span className="inline-flex items-center gap-1.5">
+                            <MapPinIcon className="h-3.5 w-3.5" />
+                            {location}
+                          </span>
+                        )}
+                      </div>
+                      <h3 className="mt-3 font-display text-lg font-semibold text-primary dark:text-white">
+                        {pick(language, forum.title, forum.titleAr)}
+                      </h3>
+                      {description && (
+                        <p className="mt-3 leading-relaxed text-primary-400 dark:text-cream-200/75">
+                          {description}
+                        </p>
+                      )}
+                      <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-accent/10 pt-3 dark:border-primary-500/40">
+                        {forum.speaker && (
+                          <p className="text-xs font-semibold text-primary-500 dark:text-cream-200/70">
+                            {forum.speaker}
+                          </p>
+                        )}
+                        {forum.link && (
+                          <a
+                            href={forum.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-secondary"
+                          >
+                            {t('forums', 'joinForum')}
+                          </a>
+                        )}
+                      </div>
+                    </article>
+                  </Reveal>
+                )
+              })}
+            </div>
+          )}
         </div>
       </section>
 
@@ -53,9 +149,9 @@ export function Religion() {
         <div className="container-page">
           <Reveal>
             <SectionHeading
-              eyebrow={t('religion', 'listenEyebrow')}
-              title={t('religion', 'sermonsTitle')}
-              description={t('religion', 'sermonsDescription')}
+              eyebrow={t('forums', 'listenEyebrow')}
+              title={t('forums', 'sermonsTitle')}
+              description={t('forums', 'sermonsDescription')}
             />
           </Reveal>
 
@@ -84,7 +180,7 @@ export function Religion() {
                 aria-label="Sermon playlist"
                 aria-orientation="vertical"
               >
-                <h3 className="eyebrow px-2 pb-3 pt-1 text-accent">{t('religion', 'playlist')}</h3>
+                <h3 className="eyebrow px-2 pb-3 pt-1 text-accent">{t('forums', 'playlist')}</h3>
                 <ul className="space-y-2" role="list">
                   {sermons.map((sermon) => {
                     const isActive = sermon.id === selectedSermon.id
@@ -125,7 +221,7 @@ export function Religion() {
                               )}
                             >
                               {sermon.speaker} · {sermon.duration} ·{' '}
-                              {sermon.type === 'video' ? t('religion', 'video') : t('religion', 'audio')}
+                              {sermon.type === 'video' ? t('forums', 'video') : t('forums', 'audio')}
                             </span>
                           </span>
                         </button>
@@ -144,14 +240,14 @@ export function Religion() {
         <div className="container-page">
           <Reveal>
             <SectionHeading
-              eyebrow={t('religion', 'lecturesEyebrow')}
-              title={t('religion', 'lecturesTitle')}
-              description={t('religion', 'lecturesDescription')}
+              eyebrow={t('forums', 'pastEyebrow')}
+              title={t('forums', 'pastTitle')}
+              description={t('forums', 'pastDescription')}
             />
           </Reveal>
 
           <div className="mx-auto mt-10 max-w-3xl space-y-4">
-            {lectures.map((lecture, i) => (
+            {pastLectures.map((lecture, i) => (
               <Reveal key={lecture.id} delay={i * 60}>
                 <article className="card p-6">
                   <div className="flex flex-wrap items-center gap-2">
@@ -190,9 +286,9 @@ export function Religion() {
         <div className="container-page">
           <Reveal>
             <SectionHeading
-              eyebrow={t('religion', 'readEyebrow')}
-              title={t('religion', 'articlesTitle')}
-              description={t('religion', 'articlesDescription')}
+              eyebrow={t('forums', 'readEyebrow')}
+              title={t('forums', 'articlesTitle')}
+              description={t('forums', 'articlesDescription')}
             />
           </Reveal>
 
@@ -210,7 +306,7 @@ export function Religion() {
                     : 'bg-cream text-primary-400 ring-1 ring-accent/20 hover:bg-accent/10 dark:bg-primary-700 dark:text-cream-200/80 dark:ring-primary-500/50',
                 )}
               >
-                {cat === 'all' ? t('religion', 'allCategories') : t('articleCategories', cat)}
+                {cat === 'all' ? t('forums', 'allCategories') : t('articleCategories', cat)}
               </button>
             ))}
           </Reveal>
@@ -273,9 +369,9 @@ export function Religion() {
         <div className="container-page">
           <Reveal>
             <SectionHeading
-              eyebrow={t('religion', 'questionsEyebrow')}
-              title={t('religion', 'faqTitle')}
-              description={t('religion', 'faqDescription')}
+              eyebrow={t('forums', 'questionsEyebrow')}
+              title={t('forums', 'faqTitle')}
+              description={t('forums', 'faqDescription')}
             />
           </Reveal>
           <Reveal className="mt-10">
