@@ -1,1 +1,15 @@
-[]
+[
+  {
+    "id": "test-forum",
+    "title": "Test forum (delete later)",
+    "titleAr": "منتدى تجريبي (يُحذف لاحقًا)",
+    "date": "2026-12-01",
+    "time": "8:00pm Sudan time",
+    "location": "Khartoum",
+    "locationAr": "الخرطوم",
+    "speaker": "Test speaker",
+    "description": "A placeholder forum to test the upcoming-forums section.",
+    "descriptionAr": "منتدى تجريبي لاختبار قسم المنتديات القادمة.",
+    "link": "https://t.me/rootsplatform"
+  }
+]
