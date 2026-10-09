@@ -1,14 +1,16 @@
 {
   "forums": [
     {
-      "id": "arbie-ahlan-2026-08-20",
-      "title": "أربيع أهلاً",
+      "locationAr": "ستقام على تليجرام",
       "titleAr": "أربيع أهلاً",
-      "date": "2026-08-20",
       "time": "8:00 pm Khartoum time",
+      "date": "2026-08-20",
+      "location": "On Telegram",
+      "title": "أربيع أهلاً",
+      "id": "arbie-ahlan-2026-08-20",
+      "image": "/forums/arbie-ahlan-2026-08-20.jpg",
       "timeAr": "الساعة الثامنة مساءً بتوقيت الخرطوم",
-      "speaker": "عثمان وراق · مدثر العوض",
-      "image": "/forums/arbie-ahlan-2026-08-20.jpg"
+      "speaker": "الشيخ عثمان وراق · الشيخ مدثر العوض "
     }
   ]
 }
