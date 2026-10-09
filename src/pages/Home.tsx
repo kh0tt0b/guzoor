@@ -95,7 +95,7 @@ export function Home() {
     <>
       <Seo
         title="Guzoor — Roots for Intellectual Building & Deep-Rooting"
-        description="Guzoor (جذور للبناء الفكري والتأصيل) is a continuous attempt to recover the Sudanese self from beneath the rubble of distortion, reconnecting the conscience with itself and with its Islamic world. Explore the programs, the martyrs, and the articles."
+        description="Guzoor (جذور للبناء الفكري والتأصيل) is a continuous attempt to recover the Sudanese self from beneath the rubble of distortion, reconnecting the conscience with itself and with its Islamic world. Explore the programs, the heroes, and the articles."
         path="/"
       />
 
@@ -319,6 +319,7 @@ export function Home() {
       </section>
 
       {/* ============ LISTEN ============ */}
+      {sermons.length > 0 && (
       <section className="bg-primary-900 pb-20 text-white sm:pb-24">
         <div className="container-page">
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
@@ -361,6 +362,7 @@ export function Home() {
           </div>
         </div>
       </section>
+      )}
 
       {/* ============ JOIN CTA ============ */}
       <section className="relative overflow-hidden bg-accent py-16 text-white">

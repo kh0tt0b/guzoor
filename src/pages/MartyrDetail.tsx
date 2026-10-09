@@ -30,7 +30,7 @@ export function MartyrDetail() {
   if (!martyr) {
     return (
       <div className="container-page py-28 text-center">
-        <Seo title="Martyr not found" description="This martyr is not in the archive." path="/martyrs" />
+        <Seo title="Not found" description="This page is not in the archive." path="/martyrs" />
         <h1 className="font-display text-3xl font-bold text-primary-700 dark:text-cream-100">
           {t('martyrDetail', 'notFoundTitle')}
         </h1>

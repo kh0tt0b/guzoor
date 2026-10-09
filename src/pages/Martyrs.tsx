@@ -34,8 +34,8 @@ export function Martyrs() {
   return (
     <>
       <Seo
-        title="The Martyrs — Defenders of Religion & Homeland"
-        description="The martyrs of the lines whose stories the Guzoor channel keeps: scholars, fighters, students, and the young knights of the war. Search by name, or filter by region, era, and year."
+        title="The Heroes — Defenders of Religion & Homeland"
+        description="The heroes of the lines whose stories the Guzoor channel keeps: scholars, fighters, students, and the young knights of the war. Search by name, or filter by region, era, and year."
         path="/martyrs"
       />
 
@@ -55,7 +55,7 @@ export function Martyrs() {
         <div className="container-page">
           <form
             role="search"
-            aria-label="Search martyrs"
+            aria-label="Search heroes"
             onSubmit={(e) => e.preventDefault()}
             className="grid gap-4 md:grid-cols-12"
           >
@@ -132,13 +132,16 @@ export function Martyrs() {
             </div>
           </form>
 
-          <p className="mt-4 text-sm text-primary-400 dark:text-cream-200/60">
-            {filtered.length}{' '}
-            {filtered.length === 1
-              ? t('martyrsPage', 'martyrSingular')
-              : t('martyrsPage', 'martyrPlural')}{' '}
-            {isFiltering ? t('martyrsPage', 'matchSearch') : t('martyrsPage', 'remembered')}
-          </p>
+          {/* No total count of the heroes is shown; only the number of search matches. */}
+          {isFiltering && (
+            <p className="mt-4 text-sm text-primary-400 dark:text-cream-200/60">
+              {filtered.length}{' '}
+              {filtered.length === 1
+                ? t('martyrsPage', 'martyrSingular')
+                : t('martyrsPage', 'martyrPlural')}{' '}
+              {filtered.length === 1 ? t('martyrsPage', 'matchSearchOne') : t('martyrsPage', 'matchSearch')}
+            </p>
+          )}
         </div>
       </section>
 

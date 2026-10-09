@@ -17,7 +17,7 @@ import { getPastForums, getUpcomingForums } from '../data/forums'
 
 export function Forums() {
   const { t, language } = useLanguage()
-  const [selectedSermonId, setSelectedSermonId] = useState(sermons[0].id)
+  const [selectedSermonId, setSelectedSermonId] = useState(sermons[0]?.id ?? '')
   const [category, setCategory] = useState('all')
 
   const selectedSermon = sermons.find((s) => s.id === selectedSermonId) ?? sermons[0]
@@ -99,6 +99,7 @@ export function Forums() {
       </section>
 
       {/* ============ SERMONS ============ */}
+      {selectedSermon && (
       <section className="bg-cream py-20 dark:bg-primary-900">
         <div className="container-page">
           <Reveal>
@@ -188,6 +189,7 @@ export function Forums() {
           </div>
         </div>
       </section>
+      )}
 
       {/* ============ LECTURES & SESSIONS ============ */}
       <section className="border-t border-accent/10 bg-cream-100 py-20 dark:border-primary-500/40 dark:bg-primary-800">

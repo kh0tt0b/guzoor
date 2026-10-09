@@ -124,7 +124,7 @@ collections:
               - { label: "Speaker", name: speaker, widget: string }
               - { label: "Duration, e.g. '18:15'", name: duration, widget: string }
               - { label: "Type", name: type, widget: select, options: ["video", "audio"] }
-              - { label: "Media URL (real recording link, replacing the placeholder)", name: src, widget: string }
+              - { label: "Media URL: direct link to an MP3/MP4 file (YouTube and Telegram links will not play). Left empty, the recording stays hidden on the site", name: src, widget: string, required: false }
               - { label: "Poster image (video only)", name: poster, widget: image, required: false }
               - { label: "Description (English)", name: description, widget: text }
               - { label: "Description (Arabic)", name: descriptionAr, widget: text, required: false }
