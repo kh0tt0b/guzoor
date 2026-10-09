@@ -90,6 +90,7 @@ export interface Forum {
   /** ISO date (YYYY-MM-DD) of the forum. */
   date: string
   time?: string
+  timeAr?: string
   location?: string
   locationAr?: string
   speaker?: string
@@ -97,4 +98,6 @@ export interface Forum {
   descriptionAr?: string
   /** Telegram post, registration form, or livestream link. */
   link?: string
+  /** Announcement poster, e.g. "/forums/name.jpg". */
+  image?: string
 }

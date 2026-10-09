@@ -16,14 +16,14 @@ locale: "en"
 
 collections:
   - name: martyrs
-    label: "Martyrs"
-    label_singular: "Martyrs list"
+    label: "Heroes · الأعلام"
+    label_singular: "Heroes list"
     files:
       - name: martyrs
-        label: "Martyrs"
+        label: "Heroes · الأعلام"
         file: "src/content/martyrs.json"
         fields:
-          - label: "Martyrs"
+          - label: "Heroes"
             name: martyrs
             widget: list
             summary: "{{fields.name}} — {{fields.title}}"
@@ -169,13 +169,13 @@ collections:
               - { label: "Icon", name: icon, widget: select, options: ["book", "heart", "pen", "users"], required: false }
 
   - name: forums
-    label: "Forums (upcoming & past)"
+    label: "Thought & Remembrance · الفكر والذكر"
     files:
       - name: forums
-        label: "Forums"
+        label: "Circles · المجالس"
         file: "src/content/forums.json"
         fields:
-          - label: "Forums"
+          - label: "Circles"
             name: forums
             widget: list
             summary: "{{fields.date}} — {{fields.title}}"
@@ -184,10 +184,12 @@ collections:
               - { label: "Title (English)", name: title, widget: string }
               - { label: "Title (Arabic)", name: titleAr, widget: string, required: false }
               - { label: "Date", name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
-              - { label: "Time, e.g. '8:00pm Sudan time'", name: time, widget: string, required: false }
+              - { label: "Time (English), e.g. '8:00 pm Khartoum time'", name: time, widget: string, required: false }
+              - { label: "Time (Arabic), e.g. 'الساعة الثامنة مساءً بتوقيت الخرطوم'", name: timeAr, widget: string, required: false }
               - { label: "Location (English)", name: location, widget: string, required: false }
               - { label: "Location (Arabic)", name: locationAr, widget: string, required: false }
               - { label: "Speaker", name: speaker, widget: string, required: false }
               - { label: "Link (Telegram post / registration)", name: link, widget: string, required: false }
               - { label: "Description (English)", name: description, widget: text, required: false }
               - { label: "Description (Arabic)", name: descriptionAr, widget: text, required: false }
+              - { label: "Poster image", name: image, widget: image, required: false }

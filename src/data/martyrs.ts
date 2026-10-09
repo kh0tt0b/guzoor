@@ -1,7 +1,7 @@
 import type { Martyr } from '../types'
 import martyrsData from '../content/martyrs.json'
 
-export const martyrs = martyrsData as Martyr[]
+export const martyrs = (martyrsData as { martyrs: Martyr[] }).martyrs
 
 export const regions = [...new Set(martyrs.map((h) => h.region))].sort()
 export const eras = [...new Set(martyrs.map((h) => h.era))].sort()

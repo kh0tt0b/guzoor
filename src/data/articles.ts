@@ -1,7 +1,7 @@
 import type { Article } from '../types'
 import articlesData from '../content/articles.json'
 
-export const articles = articlesData as Article[]
+export const articles = (articlesData as { articles: Article[] }).articles
 
 export const articleCategories = [...new Set(articles.map((a) => a.category))].sort()
 

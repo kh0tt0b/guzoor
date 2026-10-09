@@ -1,17 +1,14 @@
 {
   "forums": [
     {
-      "id": "test-forum",
-      "title": "Test forum (delete later)",
-      "titleAr": "منتدى تجريبي (يُحذف لاحقًا)",
-      "date": "2026-12-01",
-      "time": "8:00pm Sudan time",
-      "location": "Khartoum",
-      "locationAr": "الخرطوم",
-      "speaker": "Test speaker",
-      "description": "A placeholder forum to test the upcoming-forums section.",
-      "descriptionAr": "منتدى تجريبي لاختبار قسم المنتديات القادمة.",
-      "link": "https://t.me/rootsplatform"
+      "id": "arbie-ahlan-2026-08-20",
+      "title": "أربيع أهلاً",
+      "titleAr": "أربيع أهلاً",
+      "date": "2026-08-20",
+      "time": "8:00 pm Khartoum time",
+      "timeAr": "الساعة الثامنة مساءً بتوقيت الخرطوم",
+      "speaker": "عثمان وراق · مدثر العوض",
+      "image": "/forums/arbie-ahlan-2026-08-20.jpg"
     }
   ]
 }

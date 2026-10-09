@@ -4,7 +4,8 @@ import { SectionHeading } from '../components/SectionHeading'
 import { Reveal } from '../components/Reveal'
 import { MediaPlayer } from '../components/MediaPlayer'
 import { FaqAccordion } from '../components/FaqAccordion'
-import { ChevronDownIcon, CalendarIcon, MapPinIcon, PlayIcon, TelegramIcon } from '../components/icons'
+import { ForumCard } from '../components/ForumCard'
+import { ChevronDownIcon, CalendarIcon, PlayIcon, TelegramIcon } from '../components/icons'
 import { cn } from '../lib/cn'
 import { useLanguage } from '../context/LanguageContext'
 import { pick } from '../lib/i18n'
@@ -12,7 +13,7 @@ import { sermons } from '../data/sermons'
 import { articles, articleCategories } from '../data/articles'
 import { faqs } from '../data/faqs'
 import { lectures } from '../data/lectures'
-import { getUpcomingForums } from '../data/forums'
+import { getPastForums, getUpcomingForums } from '../data/forums'
 
 export function Forums() {
   const { t, language } = useLanguage()
@@ -22,16 +23,12 @@ export function Forums() {
   const selectedSermon = sermons.find((s) => s.id === selectedSermonId) ?? sermons[0]
 
   const upcoming = useMemo(() => getUpcomingForums(), [])
+  // Circles added through the admin come first; the older lecture catalog follows.
+  const pastForums = useMemo(() => getPastForums(), [])
   const pastLectures = useMemo(
     () => [...lectures].sort((a, b) => b.date.localeCompare(a.date)),
     [],
   )
-  const formatDate = (date: string) =>
-    new Date(date).toLocaleDateString(language === 'ar' ? 'ar' : 'en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    })
 
   const visibleArticles = useMemo(
     () =>
@@ -44,8 +41,8 @@ export function Forums() {
   return (
     <>
       <Seo
-        title="Forums — Guzoor"
-        description="The forums Guzoor has held and those still to come: dates, speakers, recordings, and articles."
+        title="Circles of Thought & Remembrance — Guzoor"
+        description="The circles of thought and remembrance Guzoor has held and those still to come: dates, speakers, posters, recordings, and articles."
         path="/forums"
       />
 
@@ -91,54 +88,11 @@ export function Forums() {
             </Reveal>
           ) : (
             <div className="mx-auto mt-10 max-w-3xl space-y-4">
-              {upcoming.map((forum, i) => {
-                const location = pick(language, forum.location ?? '', forum.locationAr)
-                const description = pick(language, forum.description ?? '', forum.descriptionAr)
-                return (
-                  <Reveal key={forum.id} delay={i * 60}>
-                    <article className="card p-6">
-                      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-primary-400 dark:text-cream-200/60">
-                        <span className="inline-flex items-center gap-1.5 font-semibold text-accent">
-                          <CalendarIcon className="h-3.5 w-3.5" />
-                          {formatDate(forum.date)}
-                          {forum.time ? ` · ${forum.time}` : ''}
-                        </span>
-                        {location && (
-                          <span className="inline-flex items-center gap-1.5">
-                            <MapPinIcon className="h-3.5 w-3.5" />
-                            {location}
-                          </span>
-                        )}
-                      </div>
-                      <h3 className="mt-3 font-display text-lg font-semibold text-primary dark:text-white">
-                        {pick(language, forum.title, forum.titleAr)}
-                      </h3>
-                      {description && (
-                        <p className="mt-3 leading-relaxed text-primary-400 dark:text-cream-200/75">
-                          {description}
-                        </p>
-                      )}
-                      <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-accent/10 pt-3 dark:border-primary-500/40">
-                        {forum.speaker && (
-                          <p className="text-xs font-semibold text-primary-500 dark:text-cream-200/70">
-                            {forum.speaker}
-                          </p>
-                        )}
-                        {forum.link && (
-                          <a
-                            href={forum.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="btn-secondary"
-                          >
-                            {t('forums', 'joinForum')}
-                          </a>
-                        )}
-                      </div>
-                    </article>
-                  </Reveal>
-                )
-              })}
+              {upcoming.map((forum, i) => (
+                <Reveal key={forum.id} delay={i * 60}>
+                  <ForumCard forum={forum} />
+                </Reveal>
+              ))}
             </div>
           )}
         </div>
@@ -247,6 +201,11 @@ export function Forums() {
           </Reveal>
 
           <div className="mx-auto mt-10 max-w-3xl space-y-4">
+            {pastForums.map((forum, i) => (
+              <Reveal key={forum.id} delay={i * 60}>
+                <ForumCard forum={forum} />
+              </Reveal>
+            ))}
             {pastLectures.map((lecture, i) => (
               <Reveal key={lecture.id} delay={i * 60}>
                 <article className="card p-6">
